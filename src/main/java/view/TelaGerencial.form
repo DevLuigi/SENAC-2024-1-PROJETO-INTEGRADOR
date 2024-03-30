@@ -75,11 +75,11 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="TabbedPaneProdutos" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="lblProdutos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -117,15 +117,165 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="631" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblModeloProduto" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNomeProduto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtModeloProduto" pref="169" max="32767" attributes="0"/>
+                                          <Component id="txtNomeProduto" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblCategoriaProduto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblPrecoProduto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtCategoriaProduto" pref="90" max="32767" attributes="0"/>
+                                          <Component id="txtPrecoProduto" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblateProduto" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtAteProduto" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane2" alignment="1" pref="625" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="btnIncluirProduto" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnAlterarProduto" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnExcluirProduto" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="345" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtNomeProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCategoriaProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCategoriaProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNomeProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblPrecoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPrecoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblateProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtAteProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="lblModeloProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtModeloProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="387" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnIncluirProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAlterarProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnExcluirProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="11" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="lblNomeProduto">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Nome:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblModeloProduto">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Modelo:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtNomeProduto">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtModeloProduto">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblCategoriaProduto">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Categoria:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblPrecoProduto">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pre&#xe7;o:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtCategoriaProduto">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtPrecoProduto">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblateProduto">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="At&#xe9;"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtAteProduto">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Consultar"/>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="tblProdutos">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="4" rowCount="4">
+                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              </Table>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JButton" name="btnIncluirProduto">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Incluir"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnAlterarProduto">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Alterar"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnExcluirProduto">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Excluir"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="PainelDigitarProdutos">
                   <Constraints>
@@ -139,15 +289,156 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="631" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="btnOkPD" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblModeloPD" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblNomePD" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtModeloPD" pref="219" max="32767" attributes="0"/>
+                                              <Component id="txtNomePD" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblCategoriaPD" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblFabricantePD" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblCorPD" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblPrecoPD" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblEstoquePD" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtEstoquePD" alignment="0" pref="219" max="32767" attributes="0"/>
+                                              <Component id="txtPrecoPD" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtCorPD" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtFabricantePD" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtCategoriaPD" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnCancelarPD" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="240" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="345" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblNomePD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNomePD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblModeloPD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtModeloPD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblCategoriaPD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCategoriaPD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblFabricantePD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFabricantePD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblCorPD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCorPD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblPrecoPD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPrecoPD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblEstoquePD" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEstoquePD" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnOkPD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCancelarPD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="203" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="lblNomePD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Nome:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtNomePD">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblModeloPD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Modelo:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtModeloPD">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblCategoriaPD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Categoria:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtCategoriaPD">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblFabricantePD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Fabricante:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtFabricantePD">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblCorPD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cor:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtCorPD">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblPrecoPD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pre&#xe7;o:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtPrecoPD">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblEstoquePD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Estoque:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtEstoquePD">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnOkPD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="OK"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnCancelarPD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cancelar"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
                 </Container>
               </SubComponents>
             </Container>
@@ -240,6 +531,14 @@
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" alignment="1" pref="631" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnIncluirCliente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnAlterarCliente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnExcluirCliente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -260,8 +559,15 @@
                                   <Component id="txtCepCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnConsultarCliente" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="383" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" pref="267" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnIncluirCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAlterarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnExcluirCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -321,6 +627,21 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JButton" name="btnIncluirCliente">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Incluir"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnAlterarCliente">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Alterar"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnExcluirCliente">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Excluir"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="PainelDigitarClientes">
@@ -348,9 +669,9 @@
                                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="rbtnFemininoCliente" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="rbtnMasculinoCliente" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="txtTel" pref="179" max="32767" attributes="0"/>
                                               <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
@@ -432,8 +753,8 @@
                               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="jRadioButton1" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbtnFemininoCliente" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="rbtnMasculinoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblSexo" min="-2" pref="21" max="-2" attributes="0"/>
                               </Group>
@@ -447,7 +768,7 @@
                                   <Component id="lblDataNasc" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="fTxtDataNasc" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="69" max="32767" attributes="0"/>
+                              <EmptySpace pref="220" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnOK" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -537,7 +858,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                    <Component class="javax.swing.JRadioButton" name="rbtnFemininoCliente">
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroupSexo"/>
@@ -545,7 +866,7 @@
                         <Property name="text" type="java.lang.String" value="Feminino"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                    <Component class="javax.swing.JRadioButton" name="rbtnMasculinoCliente">
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroupSexo"/>
@@ -659,7 +980,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="414" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="565" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -681,7 +1002,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="414" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="565" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>

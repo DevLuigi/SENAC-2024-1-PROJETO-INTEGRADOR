@@ -31,7 +31,39 @@ public class TelaGerencial extends javax.swing.JFrame {
         PainelLateralProdutos = new javax.swing.JPanel();
         TabbedPaneProdutos = new javax.swing.JTabbedPane();
         PainelConsultaProdutos = new javax.swing.JPanel();
+        lblNomeProduto = new javax.swing.JLabel();
+        lblModeloProduto = new javax.swing.JLabel();
+        txtNomeProduto = new javax.swing.JTextField();
+        txtModeloProduto = new javax.swing.JTextField();
+        lblCategoriaProduto = new javax.swing.JLabel();
+        lblPrecoProduto = new javax.swing.JLabel();
+        txtCategoriaProduto = new javax.swing.JTextField();
+        txtPrecoProduto = new javax.swing.JTextField();
+        lblateProduto = new javax.swing.JLabel();
+        txtAteProduto = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblProdutos = new javax.swing.JTable();
+        btnIncluirProduto = new javax.swing.JButton();
+        btnAlterarProduto = new javax.swing.JButton();
+        btnExcluirProduto = new javax.swing.JButton();
         PainelDigitarProdutos = new javax.swing.JPanel();
+        lblNomePD = new javax.swing.JLabel();
+        txtNomePD = new javax.swing.JTextField();
+        lblModeloPD = new javax.swing.JLabel();
+        txtModeloPD = new javax.swing.JTextField();
+        lblCategoriaPD = new javax.swing.JLabel();
+        txtCategoriaPD = new javax.swing.JTextField();
+        lblFabricantePD = new javax.swing.JLabel();
+        txtFabricantePD = new javax.swing.JTextField();
+        lblCorPD = new javax.swing.JLabel();
+        txtCorPD = new javax.swing.JTextField();
+        lblPrecoPD = new javax.swing.JLabel();
+        txtPrecoPD = new javax.swing.JTextField();
+        lblEstoquePD = new javax.swing.JLabel();
+        txtEstoquePD = new javax.swing.JTextField();
+        btnOkPD = new javax.swing.JButton();
+        btnCancelarPD = new javax.swing.JButton();
         lblProdutos = new javax.swing.JLabel();
         PainelLateralCliente = new javax.swing.JPanel();
         TabbedPaneClientes = new javax.swing.JTabbedPane();
@@ -47,6 +79,9 @@ public class TelaGerencial extends javax.swing.JFrame {
         btnConsultarCliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableConsultarCliente = new javax.swing.JTable();
+        btnIncluirCliente = new javax.swing.JButton();
+        btnAlterarCliente = new javax.swing.JButton();
+        btnExcluirCliente = new javax.swing.JButton();
         PainelDigitarClientes = new javax.swing.JPanel();
         lblNome = new javax.swing.JLabel();
         lblCPF = new javax.swing.JLabel();
@@ -59,8 +94,8 @@ public class TelaGerencial extends javax.swing.JFrame {
         txtCPF = new javax.swing.JTextField();
         txtTel = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rbtnFemininoCliente = new javax.swing.JRadioButton();
+        rbtnMasculinoCliente = new javax.swing.JRadioButton();
         cboxEstadoCiv = new javax.swing.JComboBox<>();
         fTxtDataNasc = new javax.swing.JFormattedTextField();
         lblCep = new javax.swing.JLabel();
@@ -90,28 +125,197 @@ public class TelaGerencial extends javax.swing.JFrame {
         TabbedPanePrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         TabbedPanePrincipal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
+        lblNomeProduto.setText("Nome:");
+
+        lblModeloProduto.setText("Modelo:");
+
+        lblCategoriaProduto.setText("Categoria:");
+
+        lblPrecoProduto.setText("Preço:");
+
+        lblateProduto.setText("Até");
+
+        jButton1.setText("Consultar");
+
+        tblProdutos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblProdutos);
+
+        btnIncluirProduto.setText("Incluir");
+
+        btnAlterarProduto.setText("Alterar");
+
+        btnExcluirProduto.setText("Excluir");
+
         javax.swing.GroupLayout PainelConsultaProdutosLayout = new javax.swing.GroupLayout(PainelConsultaProdutos);
         PainelConsultaProdutos.setLayout(PainelConsultaProdutosLayout);
         PainelConsultaProdutosLayout.setHorizontalGroup(
             PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 631, Short.MAX_VALUE)
+            .addGroup(PainelConsultaProdutosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelConsultaProdutosLayout.createSequentialGroup()
+                        .addGroup(PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblModeloProduto)
+                            .addComponent(lblNomeProduto))
+                        .addGap(18, 18, 18)
+                        .addGroup(PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtModeloProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                            .addComponent(txtNomeProduto))
+                        .addGap(18, 18, 18)
+                        .addGroup(PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCategoriaProduto)
+                            .addComponent(lblPrecoProduto))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCategoriaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                            .addComponent(txtPrecoProduto))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblateProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAteProduto)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addContainerGap())
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+                    .addGroup(PainelConsultaProdutosLayout.createSequentialGroup()
+                        .addComponent(btnIncluirProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAlterarProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnExcluirProduto)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         PainelConsultaProdutosLayout.setVerticalGroup(
             PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
+            .addGroup(PainelConsultaProdutosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCategoriaProduto)
+                    .addComponent(txtCategoriaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNomeProduto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblPrecoProduto)
+                        .addComponent(txtPrecoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblateProduto)
+                        .addComponent(txtAteProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModeloProduto)
+                        .addComponent(txtModeloProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PainelConsultaProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIncluirProduto)
+                    .addComponent(btnAlterarProduto)
+                    .addComponent(btnExcluirProduto))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         TabbedPaneProdutos.addTab("Consulta", PainelConsultaProdutos);
+
+        lblNomePD.setText("Nome:");
+
+        lblModeloPD.setText("Modelo:");
+
+        lblCategoriaPD.setText("Categoria:");
+
+        lblFabricantePD.setText("Fabricante:");
+
+        lblCorPD.setText("Cor:");
+
+        lblPrecoPD.setText("Preço:");
+
+        lblEstoquePD.setText("Estoque:");
+
+        btnOkPD.setText("OK");
+
+        btnCancelarPD.setText("Cancelar");
 
         javax.swing.GroupLayout PainelDigitarProdutosLayout = new javax.swing.GroupLayout(PainelDigitarProdutos);
         PainelDigitarProdutos.setLayout(PainelDigitarProdutosLayout);
         PainelDigitarProdutosLayout.setHorizontalGroup(
             PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 631, Short.MAX_VALUE)
+            .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnOkPD)
+                    .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
+                            .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblModeloPD)
+                                .addComponent(lblNomePD))
+                            .addGap(28, 28, 28)
+                            .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtModeloPD, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                                .addComponent(txtNomePD)))
+                        .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
+                            .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblCategoriaPD)
+                                .addComponent(lblFabricantePD)
+                                .addComponent(lblCorPD)
+                                .addComponent(lblPrecoPD)
+                                .addComponent(lblEstoquePD))
+                            .addGap(14, 14, 14)
+                            .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtEstoquePD, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                                .addComponent(txtPrecoPD)
+                                .addComponent(txtCorPD)
+                                .addComponent(txtFabricantePD)
+                                .addComponent(txtCategoriaPD)))))
+                .addGap(18, 18, 18)
+                .addComponent(btnCancelarPD)
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         PainelDigitarProdutosLayout.setVerticalGroup(
             PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
+            .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomePD)
+                    .addComponent(txtNomePD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblModeloPD)
+                    .addComponent(txtModeloPD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCategoriaPD)
+                    .addComponent(txtCategoriaPD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFabricantePD)
+                    .addComponent(txtFabricantePD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCorPD)
+                    .addComponent(txtCorPD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPrecoPD)
+                    .addComponent(txtPrecoPD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEstoquePD)
+                    .addComponent(txtEstoquePD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOkPD)
+                    .addComponent(btnCancelarPD))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         TabbedPaneProdutos.addTab("Digitar", PainelDigitarProdutos);
@@ -166,6 +370,12 @@ public class TelaGerencial extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TableConsultarCliente);
 
+        btnIncluirCliente.setText("Incluir");
+
+        btnAlterarCliente.setText("Alterar");
+
+        btnExcluirCliente.setText("Excluir");
+
         javax.swing.GroupLayout PainelConsultaClientesLayout = new javax.swing.GroupLayout(PainelConsultaClientes);
         PainelConsultaClientes.setLayout(PainelConsultaClientesLayout);
         PainelConsultaClientesLayout.setHorizontalGroup(
@@ -192,6 +402,13 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addComponent(btnConsultarCliente)
                 .addContainerGap())
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
+            .addGroup(PainelConsultaClientesLayout.createSequentialGroup()
+                .addComponent(btnIncluirCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAlterarCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnExcluirCliente)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         PainelConsultaClientesLayout.setVerticalGroup(
             PainelConsultaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,8 +426,14 @@ public class TelaGerencial extends javax.swing.JFrame {
                     .addComponent(lblCepCliente)
                     .addComponent(txtCepCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE))
+                .addGroup(PainelConsultaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIncluirCliente)
+                    .addComponent(btnAlterarCliente)
+                    .addComponent(btnExcluirCliente))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TabbedPaneClientes.addTab("Consulta", PainelConsultaClientes);
@@ -235,11 +458,11 @@ public class TelaGerencial extends javax.swing.JFrame {
             }
         });
 
-        buttonGroupSexo.add(jRadioButton1);
-        jRadioButton1.setText("Feminino");
+        buttonGroupSexo.add(rbtnFemininoCliente);
+        rbtnFemininoCliente.setText("Feminino");
 
-        buttonGroupSexo.add(jRadioButton2);
-        jRadioButton2.setText("Masculino");
+        buttonGroupSexo.add(rbtnMasculinoCliente);
+        rbtnMasculinoCliente.setText("Masculino");
 
         cboxEstadoCiv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Solteiro(a)", "Casado(a)", "Divorciado(a)", "Viúvo(a)" }));
 
@@ -283,9 +506,9 @@ public class TelaGerencial extends javax.swing.JFrame {
                             .addGap(26, 26, 26)
                             .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                                    .addComponent(jRadioButton1)
+                                    .addComponent(rbtnFemininoCliente)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jRadioButton2))
+                                    .addComponent(rbtnMasculinoCliente))
                                 .addComponent(txtTel, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                                 .addComponent(txtEmail)))
                         .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
@@ -347,8 +570,8 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton2))
+                        .addComponent(rbtnFemininoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(rbtnMasculinoCliente))
                     .addComponent(lblSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -358,7 +581,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDataNasc)
                     .addComponent(fTxtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOK)
                     .addComponent(btnCancelar))
@@ -428,7 +651,7 @@ public class TelaGerencial extends javax.swing.JFrame {
         );
         PainelLateralVendasLayout.setVerticalGroup(
             PainelLateralVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
         TabbedPanePrincipal.addTab("Vendas", PainelLateralVendas);
@@ -441,7 +664,7 @@ public class TelaGerencial extends javax.swing.JFrame {
         );
         PainelLateralRelatoriosLayout.setVerticalGroup(
             PainelLateralRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
         TabbedPanePrincipal.addTab("Relatórios", PainelLateralRelatorios);
@@ -564,49 +787,84 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JTabbedPane TabbedPanePrincipal;
     private javax.swing.JTabbedPane TabbedPaneProdutos;
     private javax.swing.JTable TableConsultarCliente;
+    private javax.swing.JButton btnAlterarCliente;
+    private javax.swing.JButton btnAlterarProduto;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCancelarPD;
     private javax.swing.JButton btnConsultarCliente;
+    private javax.swing.JButton btnExcluirCliente;
+    private javax.swing.JButton btnExcluirProduto;
+    private javax.swing.JButton btnIncluirCliente;
+    private javax.swing.JButton btnIncluirProduto;
     private javax.swing.JButton btnOK;
+    private javax.swing.JButton btnOkPD;
     private javax.swing.JToggleButton btnSair;
     private javax.swing.ButtonGroup buttonGroupSexo;
     private javax.swing.JComboBox<String> cboxEstadoCiv;
     private javax.swing.JFormattedTextField fTxtDataNasc;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblCPFCliente;
+    private javax.swing.JLabel lblCategoriaPD;
+    private javax.swing.JLabel lblCategoriaProduto;
     private javax.swing.JLabel lblCep;
     private javax.swing.JLabel lblCepCliente;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblClientes;
+    private javax.swing.JLabel lblCorPD;
     private javax.swing.JLabel lblDataNasc;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblEstadoCiv;
+    private javax.swing.JLabel lblEstoquePD;
+    private javax.swing.JLabel lblFabricantePD;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblLogradouro;
+    private javax.swing.JLabel lblModeloPD;
+    private javax.swing.JLabel lblModeloProduto;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNomeCliente;
+    private javax.swing.JLabel lblNomePD;
+    private javax.swing.JLabel lblNomeProduto;
     private javax.swing.JLabel lblPais;
+    private javax.swing.JLabel lblPrecoPD;
+    private javax.swing.JLabel lblPrecoProduto;
     private javax.swing.JLabel lblProdutos;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblTel;
     private javax.swing.JLabel lblTelefoneCliente;
+    private javax.swing.JLabel lblateProduto;
+    private javax.swing.JRadioButton rbtnFemininoCliente;
+    private javax.swing.JRadioButton rbtnMasculinoCliente;
+    private javax.swing.JTable tblProdutos;
+    private javax.swing.JTextField txtAteProduto;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCPF;
+    private javax.swing.JTextField txtCategoriaPD;
+    private javax.swing.JTextField txtCategoriaProduto;
     private javax.swing.JTextField txtCep;
     private javax.swing.JTextField txtCepCliente;
     private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtCorPD;
     private javax.swing.JTextField txtCpfCliente;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEstado;
+    private javax.swing.JTextField txtEstoquePD;
+    private javax.swing.JTextField txtFabricantePD;
     private javax.swing.JTextField txtLogradouro;
+    private javax.swing.JTextField txtModeloPD;
+    private javax.swing.JTextField txtModeloProduto;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNomeCliente;
+    private javax.swing.JTextField txtNomePD;
+    private javax.swing.JTextField txtNomeProduto;
     private javax.swing.JTextField txtPais;
+    private javax.swing.JTextField txtPrecoPD;
+    private javax.swing.JTextField txtPrecoProduto;
     private javax.swing.JTextField txtTel;
     private javax.swing.JTextField txtTelefoneCliente;
     // End of variables declaration//GEN-END:variables
