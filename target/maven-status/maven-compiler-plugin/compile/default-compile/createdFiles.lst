@@ -1,0 +1,11 @@
+view\TelaGerencial.class
+view\TelaGerencial$2.class
+view\TelaInicial$1.class
+controller\Produto.class
+controller\Cliente.class
+view\TelaGerencial$1.class
+view\TelaInicial.class
+model\Cliente.class
+model\Produto.class
+view\TelaGerencial$3.class
+view\TelaInicial$2.class
