@@ -4,6 +4,7 @@ import java.awt.Color;
 import controller.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.*;
+import javax.swing.text.MaskFormatter;
 
 public class TelaGerencial extends javax.swing.JFrame {
     /**
@@ -109,28 +110,32 @@ public class TelaGerencial extends javax.swing.JFrame {
         lblEstadoCiv = new javax.swing.JLabel();
         lblDataNasc = new javax.swing.JLabel();
         txtNomeClienteDigitar = new javax.swing.JTextField();
-        txtCpfDigitar = new javax.swing.JTextField();
-        txtTelefone = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         rbtnFemininoCliente = new javax.swing.JRadioButton();
         rbtnMasculinoCliente = new javax.swing.JRadioButton();
         cboEstadoCivil = new javax.swing.JComboBox<>();
-        txtDataNascimento = new javax.swing.JFormattedTextField();
+        fTxtDataNascimento = new javax.swing.JFormattedTextField();
         lblCep = new javax.swing.JLabel();
         lblLogradouro = new javax.swing.JLabel();
         lblBairro = new javax.swing.JLabel();
         lblCidade = new javax.swing.JLabel();
         lblEstado = new javax.swing.JLabel();
         lblPais = new javax.swing.JLabel();
-        txtCepDigitar = new javax.swing.JTextField();
         txtLogradouro = new javax.swing.JTextField();
         txtBairro = new javax.swing.JTextField();
         txtCidade = new javax.swing.JTextField();
-        txtEstado = new javax.swing.JTextField();
-        txtPais = new javax.swing.JTextField();
         btnOK = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblStatusCliente = new javax.swing.JLabel();
+        fTxtCpfDigitar = new javax.swing.JFormattedTextField();
+        fTxtTelefone = new javax.swing.JFormattedTextField();
+        fTxtCepDigitar = new javax.swing.JFormattedTextField();
+        cboEstado = new javax.swing.JComboBox<>();
+        cboPais = new javax.swing.JComboBox<>();
+        lblNumeroDigitar = new javax.swing.JLabel();
+        fTxtNumeroDigitar = new javax.swing.JFormattedTextField();
+        lblComplemento = new javax.swing.JLabel();
+        txtComplemento = new javax.swing.JTextField();
         lblClientes = new javax.swing.JLabel();
         PainelLateralVendas = new javax.swing.JPanel();
         PainelLateralRelatorios = new javax.swing.JPanel();
@@ -138,8 +143,8 @@ public class TelaGerencial extends javax.swing.JFrame {
         btnSair = new javax.swing.JToggleButton();
         lblHeader = new javax.swing.JLabel();
         imgLogo = new javax.swing.JLabel();
-        PainelHeader1 = new javax.swing.JPanel();
-        lblHeader1 = new javax.swing.JLabel();
+        PainelFooter = new javax.swing.JPanel();
+        lblFooter = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Gerencial");
@@ -147,6 +152,12 @@ public class TelaGerencial extends javax.swing.JFrame {
         TabbedPanePrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         TabbedPanePrincipal.setForeground(new java.awt.Color(242, 242, 242));
         TabbedPanePrincipal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+
+        PainelLateralProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PainelLateralProdutosMouseClicked(evt);
+            }
+        });
 
         TabbedPaneProdutos.setForeground(new java.awt.Color(242, 242, 242));
 
@@ -272,7 +283,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                     .addComponent(btnIncluirProduto)
                     .addComponent(btnAlterarProduto)
                     .addComponent(btnExcluirProduto))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TabbedPaneProdutos.addTab("Consulta", PainelConsultaProdutos);
@@ -285,6 +296,11 @@ public class TelaGerencial extends javax.swing.JFrame {
                 txtNomeProdutoDigitarFocusLost(evt);
             }
         });
+        txtNomeProdutoDigitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeProdutoDigitarActionPerformed(evt);
+            }
+        });
 
         lblModeloPD.setForeground(new java.awt.Color(242, 242, 242));
         lblModeloPD.setText("Modelo:");
@@ -292,6 +308,11 @@ public class TelaGerencial extends javax.swing.JFrame {
         txtModeloProdutoDigitar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtModeloProdutoDigitarFocusLost(evt);
+            }
+        });
+        txtModeloProdutoDigitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtModeloProdutoDigitarActionPerformed(evt);
             }
         });
 
@@ -312,6 +333,11 @@ public class TelaGerencial extends javax.swing.JFrame {
                 txtFabricanteProdutoFocusLost(evt);
             }
         });
+        txtFabricanteProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFabricanteProdutoActionPerformed(evt);
+            }
+        });
 
         lblCorPD.setForeground(new java.awt.Color(242, 242, 242));
         lblCorPD.setText("Cor:");
@@ -322,6 +348,11 @@ public class TelaGerencial extends javax.swing.JFrame {
         lblEstoquePD.setForeground(new java.awt.Color(242, 242, 242));
         lblEstoquePD.setText("Estoque:");
 
+        txtEstoqueProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEstoqueProdutoActionPerformed(evt);
+            }
+        });
         txtEstoqueProduto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtEstoqueProdutoKeyTyped(evt);
@@ -352,6 +383,11 @@ public class TelaGerencial extends javax.swing.JFrame {
                 txtPrecoFocusLost(evt);
             }
         });
+        txtPreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecoActionPerformed(evt);
+            }
+        });
 
         cboCor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Amarelo", "Azul", "Branco", "Preto", "Vermelho" }));
 
@@ -360,14 +396,9 @@ public class TelaGerencial extends javax.swing.JFrame {
         PainelDigitarProdutosLayout.setHorizontalGroup(
             PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
-                        .addGap(225, 225, 225)
-                        .addComponent(btnOkProduto)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCancelarProduto))
-                    .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
                         .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
                                 .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,9 +421,19 @@ public class TelaGerencial extends javax.swing.JFrame {
                                     .addComponent(txtFabricanteProduto)
                                     .addComponent(txtCategoriaProdutoDigitar, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                                     .addComponent(txtPreco)
-                                    .addComponent(cboCor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(lblStatusProduto))))
-                .addContainerGap(246, Short.MAX_VALUE))
+                                    .addComponent(cboCor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(323, Short.MAX_VALUE))
+                    .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
+                        .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
+                                .addComponent(lblStatusProduto)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDigitarProdutosLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnOkProduto)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelarProduto)
+                        .addGap(246, 246, 246))))
         );
         PainelDigitarProdutosLayout.setVerticalGroup(
             PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,13 +466,13 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEstoquePD)
                     .addComponent(txtEstoqueProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(lblStatusProduto)
-                .addGap(20, 20, 20)
+                .addGap(11, 11, 11)
                 .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOkProduto)
                     .addComponent(btnCancelarProduto))
-                .addContainerGap())
+                .addGap(15, 15, 15))
         );
 
         TabbedPaneProdutos.addTab("Digitar", PainelDigitarProdutos);
@@ -532,10 +573,9 @@ public class TelaGerencial extends javax.swing.JFrame {
                                 .addComponent(lblCPFCliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtCpfConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(2, 2, 2)
                         .addGroup(PainelConsultaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PainelConsultaClientesLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
+                                .addGap(20, 20, 20)
                                 .addComponent(lblTelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PainelConsultaClientesLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -544,7 +584,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                         .addGroup(PainelConsultaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtTelefoneConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                             .addComponent(txtCepConsultar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                         .addComponent(btnConsultarCliente)))
                 .addContainerGap())
         );
@@ -566,7 +606,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                     .addComponent(txtCepConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(PainelConsultaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIncluirCliente)
                     .addComponent(btnAlterarCliente)
@@ -597,6 +637,22 @@ public class TelaGerencial extends javax.swing.JFrame {
         lblDataNasc.setForeground(new java.awt.Color(242, 242, 242));
         lblDataNasc.setText("Data de nasc:");
 
+        txtNomeClienteDigitar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNomeClienteDigitarFocusLost(evt);
+            }
+        });
+        txtNomeClienteDigitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeClienteDigitarActionPerformed(evt);
+            }
+        });
+
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
+            }
+        });
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -604,9 +660,11 @@ public class TelaGerencial extends javax.swing.JFrame {
         });
 
         buttonGroupSexo.add(rbtnFemininoCliente);
+        rbtnFemininoCliente.setForeground(new java.awt.Color(242, 242, 242));
         rbtnFemininoCliente.setText("Feminino");
 
         buttonGroupSexo.add(rbtnMasculinoCliente);
+        rbtnMasculinoCliente.setForeground(new java.awt.Color(242, 242, 242));
         rbtnMasculinoCliente.setText("Masculino");
         rbtnMasculinoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -614,9 +672,18 @@ public class TelaGerencial extends javax.swing.JFrame {
             }
         });
 
-        cboEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Solteiro(a)", "Casado(a)", "Divorciado(a)", "Viúvo(a)" }));
+        cboEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Solteiro(a)", "Casado(a)", "Divorciado(a)", "Viúvo(a)" }));
 
-        txtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        try {
+            fTxtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        fTxtDataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fTxtDataNascimentoFocusLost(evt);
+            }
+        });
 
         lblCep.setForeground(new java.awt.Color(242, 242, 242));
         lblCep.setText("CEP:");
@@ -636,25 +703,111 @@ public class TelaGerencial extends javax.swing.JFrame {
         lblPais.setForeground(new java.awt.Color(242, 242, 242));
         lblPais.setText("País:");
 
+        txtLogradouro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtLogradouroFocusLost(evt);
+            }
+        });
+
+        txtBairro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBairroFocusLost(evt);
+            }
+        });
         txtBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBairroActionPerformed(evt);
             }
         });
 
-        txtEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEstadoActionPerformed(evt);
+        txtCidade.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCidadeFocusLost(evt);
             }
         });
 
         btnOK.setText("OK");
+        btnOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOKActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 255, 0));
-        jLabel1.setText("STATUS: VÁLIDO");
+        lblStatusCliente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblStatusCliente.setForeground(new java.awt.Color(51, 255, 0));
+        lblStatusCliente.setText("STATUS: VÁLIDO");
+
+        try {
+            fTxtCpfDigitar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        fTxtCpfDigitar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fTxtCpfDigitarFocusLost(evt);
+            }
+        });
+        fTxtCpfDigitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fTxtCpfDigitarActionPerformed(evt);
+            }
+        });
+
+        try {
+            fTxtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)# ####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        fTxtTelefone.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fTxtTelefoneFocusLost(evt);
+            }
+        });
+        fTxtTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fTxtTelefoneActionPerformed(evt);
+            }
+        });
+
+        try {
+            fTxtCepDigitar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        fTxtCepDigitar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fTxtCepDigitarFocusLost(evt);
+            }
+        });
+
+        cboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins" }));
+
+        cboPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Brasil" }));
+
+        lblNumeroDigitar.setForeground(new java.awt.Color(242, 242, 242));
+        lblNumeroDigitar.setText("Número:");
+
+        fTxtNumeroDigitar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        fTxtNumeroDigitar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fTxtNumeroDigitarFocusLost(evt);
+            }
+        });
+        fTxtNumeroDigitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fTxtNumeroDigitarActionPerformed(evt);
+            }
+        });
+
+        lblComplemento.setForeground(new java.awt.Color(242, 242, 242));
+        lblComplemento.setText("Complemento:");
 
         javax.swing.GroupLayout PainelDigitarClientesLayout = new javax.swing.GroupLayout(PainelDigitarClientes);
         PainelDigitarClientes.setLayout(PainelDigitarClientesLayout);
@@ -663,23 +816,22 @@ public class TelaGerencial extends javax.swing.JFrame {
             .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnOK)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCancelar)
-                .addGap(248, 248, 248))
+                .addGap(254, 254, 254))
             .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                        .addComponent(lblDataNasc)
-                        .addGap(4, 4, 4)
-                        .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                        .addComponent(lblStatusCliente)
+                        .addGap(0, 517, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDigitarClientesLayout.createSequentialGroup()
+                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelDigitarClientesLayout.createSequentialGroup()
+                                .addComponent(lblDataNasc)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fTxtDataNascimento))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelDigitarClientesLayout.createSequentialGroup()
                                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblNome)
                                     .addComponent(lblCPF)
@@ -688,35 +840,48 @@ public class TelaGerencial extends javax.swing.JFrame {
                                     .addComponent(lblSexo))
                                 .addGap(26, 26, 26)
                                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                                        .addComponent(rbtnFemininoCliente)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(rbtnMasculinoCliente)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(txtEmail)
-                                    .addComponent(txtTelefone)
-                                    .addComponent(txtCpfDigitar)
-                                    .addComponent(txtNomeClienteDigitar)))
-                            .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                    .addComponent(txtNomeClienteDigitar)
+                                    .addComponent(fTxtCpfDigitar)
+                                    .addComponent(fTxtTelefone)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelDigitarClientesLayout.createSequentialGroup()
                                 .addComponent(lblEstadoCiv)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cboEstadoCivil, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cboEstadoCivil, 0, 209, Short.MAX_VALUE)
+                                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addComponent(rbtnFemininoCliente)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(rbtnMasculinoCliente)
+                                        .addGap(26, 26, 26)))))
                         .addGap(36, 36, 36)
-                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblBairro)
-                            .addComponent(lblCidade)
-                            .addComponent(lblEstado)
-                            .addComponent(lblCep)
-                            .addComponent(lblPais)
-                            .addComponent(lblLogradouro))
-                        .addGap(21, 21, 21)
-                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCidade)
-                            .addComponent(txtEstado)
-                            .addComponent(txtPais)
-                            .addComponent(txtCepDigitar)
-                            .addComponent(txtBairro)
-                            .addComponent(txtLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblCidade)
+                                            .addComponent(lblCep)
+                                            .addComponent(lblLogradouro)
+                                            .addComponent(lblEstado)
+                                            .addComponent(lblPais)
+                                            .addComponent(lblNumeroDigitar))
+                                        .addGap(21, 21, 21))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addComponent(lblBairro)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCidade)
+                                    .addComponent(txtBairro)
+                                    .addComponent(txtLogradouro, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                    .addComponent(fTxtCepDigitar)
+                                    .addComponent(cboEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fTxtNumeroDigitar)))
+                            .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                .addComponent(lblComplemento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(44, 44, 44))))
         );
         PainelDigitarClientesLayout.setVerticalGroup(
@@ -725,63 +890,72 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                        .addComponent(txtCepDigitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPais))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
                         .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNome)
                             .addComponent(txtNomeClienteDigitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCep))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCPF)
+                            .addComponent(lblLogradouro)
+                            .addComponent(fTxtCpfDigitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblCPF)
-                                    .addComponent(txtCpfDigitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblLogradouro))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblTel)
-                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblBairro, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(lblTel)
+                            .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(fTxtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblNumeroDigitar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmail)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCidade))
-                        .addGap(11, 11, 11)
-                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbtnFemininoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rbtnMasculinoCliente)
-                            .addComponent(lblSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEstado))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbtnFemininoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rbtnMasculinoCliente))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEstadoCiv)
-                            .addComponent(cboEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                            .addComponent(cboEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(5, 5, 5)
+                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fTxtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataNasc))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                        .addComponent(fTxtCepDigitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fTxtNumeroDigitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblComplemento))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblBairro))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCidade))
+                        .addGap(9, 9, 9)
+                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEstado))
+                        .addGap(14, 14, 14)))
                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDataNasc)
-                    .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73)
-                .addComponent(jLabel1)
-                .addGap(17, 17, 17)
+                    .addComponent(cboPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPais))
+                .addGap(31, 31, 31)
+                .addComponent(lblStatusCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOK)
                     .addComponent(btnCancelar))
-                .addContainerGap())
+                .addGap(17, 17, 17))
         );
 
         TabbedPaneClientes.addTab("Digitar", PainelDigitarClientes);
@@ -884,22 +1058,22 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        PainelHeader1.setBackground(new java.awt.Color(51, 51, 51));
-        PainelHeader1.setToolTipText("Painel header");
+        PainelFooter.setBackground(new java.awt.Color(51, 51, 51));
+        PainelFooter.setToolTipText("Painel header");
 
-        lblHeader1.setForeground(new java.awt.Color(242, 242, 242));
-        lblHeader1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHeader1.setText("@Xablau Tech - Direitos reservardos - 2024");
+        lblFooter.setForeground(new java.awt.Color(242, 242, 242));
+        lblFooter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFooter.setText("@Xablau Tech - Direitos reservardos - 2024");
 
-        javax.swing.GroupLayout PainelHeader1Layout = new javax.swing.GroupLayout(PainelHeader1);
-        PainelHeader1.setLayout(PainelHeader1Layout);
-        PainelHeader1Layout.setHorizontalGroup(
-            PainelHeader1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblHeader1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout PainelFooterLayout = new javax.swing.GroupLayout(PainelFooter);
+        PainelFooter.setLayout(PainelFooterLayout);
+        PainelFooterLayout.setHorizontalGroup(
+            PainelFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblFooter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        PainelHeader1Layout.setVerticalGroup(
-            PainelHeader1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblHeader1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+        PainelFooterLayout.setVerticalGroup(
+            PainelFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblFooter, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -913,7 +1087,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PainelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PainelHeader1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(PainelFooter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -924,7 +1098,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PainelHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PainelFooter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -946,10 +1120,6 @@ public class TelaGerencial extends javax.swing.JFrame {
     private void rbtnMasculinoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnMasculinoClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnMasculinoClienteActionPerformed
-
-    private void txtEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEstadoActionPerformed
 
     private void txtCepConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCepConsultarActionPerformed
         // TODO add your handling code here:
@@ -1063,6 +1233,184 @@ public class TelaGerencial extends javax.swing.JFrame {
         // Fazer lógica para pegar info dos campos e buscar na tabela
     }//GEN-LAST:event_bntConsultarProdutoActionPerformed
 
+    private void txtNomeProdutoDigitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeProdutoDigitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeProdutoDigitarActionPerformed
+
+    private void txtNomeClienteDigitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeClienteDigitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeClienteDigitarActionPerformed
+
+    private void txtModeloProdutoDigitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloProdutoDigitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtModeloProdutoDigitarActionPerformed
+
+    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecoActionPerformed
+
+    private void txtEstoqueProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstoqueProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEstoqueProdutoActionPerformed
+
+    private void txtFabricanteProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFabricanteProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFabricanteProdutoActionPerformed
+
+    private void txtNomeClienteDigitarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeClienteDigitarFocusLost
+        if(!Validacao.validaStringVazia(this.txtNomeClienteDigitar.getText())) {
+            this.lblStatusCliente.setText("STATUS: NOME INVÁLIDO");
+            this.lblStatusCliente.setForeground(Color.red);
+        }else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+    }//GEN-LAST:event_txtNomeClienteDigitarFocusLost
+
+    private void fTxtCpfDigitarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fTxtCpfDigitarFocusLost
+        String cpf = fTxtCpfDigitar.getText();
+        
+        if(cpf.equals("   .   .   -  ")){
+            this.lblStatusCliente.setText("STATUS: CPF INVÁLIDO");
+            this.lblStatusCliente.setForeground(Color.red);
+        }else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+    }//GEN-LAST:event_fTxtCpfDigitarFocusLost
+
+    private void fTxtCpfDigitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fTxtCpfDigitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fTxtCpfDigitarActionPerformed
+
+    private void fTxtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fTxtTelefoneActionPerformed
+        
+    }//GEN-LAST:event_fTxtTelefoneActionPerformed
+
+    private void fTxtTelefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fTxtTelefoneFocusLost
+        String telefone = fTxtTelefone.getText();
+        
+        if(telefone.equals("(  )      -    ")){
+            this.lblStatusCliente.setText("STATUS: TELEFONE INVÁLIDO");
+            this.lblStatusCliente.setForeground(Color.red);
+        }else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+    }//GEN-LAST:event_fTxtTelefoneFocusLost
+
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        if(!Validacao.validaStringVazia(this.txtEmail.getText())) {
+            this.lblStatusCliente.setText("STATUS: EMAIL INVÁLIDO");
+            this.lblStatusCliente.setForeground(Color.red);
+        } else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+    }//GEN-LAST:event_txtEmailFocusLost
+
+    private void fTxtDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fTxtDataNascimentoFocusLost
+        String dataNascimento = fTxtDataNascimento.getText();
+        
+        if(dataNascimento.equals("  /  /    ")){
+            this.lblStatusCliente.setText("STATUS: DATA DE NASCIMENTO INVÁLIDA");
+            this.lblStatusCliente.setForeground(Color.red);
+        }else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+        
+    }//GEN-LAST:event_fTxtDataNascimentoFocusLost
+
+    private void fTxtCepDigitarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fTxtCepDigitarFocusLost
+        String cep = fTxtCepDigitar.getText();
+        
+        if(cep.equals("     -   ")){
+            this.lblStatusCliente.setText("STATUS: CEP INVÁLIDO");
+            this.lblStatusCliente.setForeground(Color.red);
+        }else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+    }//GEN-LAST:event_fTxtCepDigitarFocusLost
+
+    private void txtLogradouroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLogradouroFocusLost
+        if(!Validacao.validaStringVazia(this.txtLogradouro.getText())) {
+            this.lblStatusCliente.setText("STATUS: LOGRADOURO INVÁLIDO");
+            this.lblStatusCliente.setForeground(Color.red);
+        } else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+    }//GEN-LAST:event_txtLogradouroFocusLost
+
+    private void PainelLateralProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PainelLateralProdutosMouseClicked
+        
+    }//GEN-LAST:event_PainelLateralProdutosMouseClicked
+
+    private void fTxtNumeroDigitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fTxtNumeroDigitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fTxtNumeroDigitarActionPerformed
+
+    private void fTxtNumeroDigitarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fTxtNumeroDigitarFocusLost
+    
+        if(fTxtNumeroDigitar.getText().isEmpty()){
+            this.lblStatusCliente.setText("STATUS: NÚMERO INVÁLIDO");
+            this.lblStatusCliente.setForeground(Color.red);
+        } else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+    }//GEN-LAST:event_fTxtNumeroDigitarFocusLost
+
+    private void txtBairroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBairroFocusLost
+        if(!Validacao.validaStringVazia(this.txtBairro.getText())) {
+            this.lblStatusCliente.setText("STATUS: BAIRRO INVÁLIDO");
+            this.lblStatusCliente.setForeground(Color.red);
+        } else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+    }//GEN-LAST:event_txtBairroFocusLost
+
+    private void txtCidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCidadeFocusLost
+        if(!Validacao.validaStringVazia(this.txtCidade.getText())) {
+            this.lblStatusCliente.setText("STATUS: CIDADE INVÁLIDA");
+            this.lblStatusCliente.setForeground(Color.red);
+        } else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+    }//GEN-LAST:event_txtCidadeFocusLost
+
+    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
+        JOptionPane.showMessageDialog(rootPane,"Em desenvolvimento...");
+        // Fazer lógica para válidar input e inserir linha
+    }//GEN-LAST:event_btnOKActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // Zera os campos
+        //Não está zerando os campos Formatted Field criados (variaveis que começam com fTXT)
+        this.txtNomeClienteDigitar.setText("");
+        this.fTxtCpfDigitar.setText("");
+        this.fTxtTelefone.setText("");
+        this.txtEmail.setText("");
+        this.buttonGroupSexo.clearSelection();
+        this.cboEstadoCivil.setSelectedIndex(0);
+        this.fTxtDataNascimento.setText("");
+        this.fTxtCepDigitar.setText("");
+        this.txtLogradouro.setText("");
+        this.fTxtNumeroDigitar.setText("");
+        this.txtComplemento.setText("");
+        this.txtBairro.setText("");
+        this.txtCidade.setText("");
+        this.cboEstado.setSelectedIndex(0);
+        this.cboPais.setSelectedIndex(0);
+        
+        // Volta para guia de consulta de clientes
+        this.TabbedPaneClientes.setSelectedIndex(0);
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1104,8 +1452,8 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JPanel PainelConsultaProdutos;
     private javax.swing.JPanel PainelDigitarClientes;
     private javax.swing.JPanel PainelDigitarProdutos;
+    private javax.swing.JPanel PainelFooter;
     private javax.swing.JPanel PainelHeader;
-    private javax.swing.JPanel PainelHeader1;
     private javax.swing.JPanel PainelLateralCliente;
     private javax.swing.JPanel PainelLateralProdutos;
     private javax.swing.JPanel PainelLateralRelatorios;
@@ -1129,9 +1477,15 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnSair;
     private javax.swing.ButtonGroup buttonGroupSexo;
     private javax.swing.JComboBox<String> cboCor;
+    private javax.swing.JComboBox<String> cboEstado;
     private javax.swing.JComboBox<String> cboEstadoCivil;
+    private javax.swing.JComboBox<String> cboPais;
+    private javax.swing.JFormattedTextField fTxtCepDigitar;
+    private javax.swing.JFormattedTextField fTxtCpfDigitar;
+    private javax.swing.JFormattedTextField fTxtDataNascimento;
+    private javax.swing.JFormattedTextField fTxtNumeroDigitar;
+    private javax.swing.JFormattedTextField fTxtTelefone;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblBairro;
@@ -1143,6 +1497,7 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JLabel lblCepCliente;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblClientes;
+    private javax.swing.JLabel lblComplemento;
     private javax.swing.JLabel lblCorPD;
     private javax.swing.JLabel lblDataNasc;
     private javax.swing.JLabel lblEmail;
@@ -1150,8 +1505,8 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JLabel lblEstadoCiv;
     private javax.swing.JLabel lblEstoquePD;
     private javax.swing.JLabel lblFabricantePD;
+    private javax.swing.JLabel lblFooter;
     private javax.swing.JLabel lblHeader;
-    private javax.swing.JLabel lblHeader1;
     private javax.swing.JLabel lblLogradouro;
     private javax.swing.JLabel lblModeloPD;
     private javax.swing.JLabel lblModeloProduto;
@@ -1159,11 +1514,13 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JLabel lblNomeCliente;
     private javax.swing.JLabel lblNomePD;
     private javax.swing.JLabel lblNomeProduto;
+    private javax.swing.JLabel lblNumeroDigitar;
     private javax.swing.JLabel lblPais;
     private javax.swing.JLabel lblPrecoPD;
     private javax.swing.JLabel lblPrecoProduto;
     private javax.swing.JLabel lblProdutos;
     private javax.swing.JLabel lblSexo;
+    private javax.swing.JLabel lblStatusCliente;
     private javax.swing.JLabel lblStatusProduto;
     private javax.swing.JLabel lblTel;
     private javax.swing.JLabel lblTelefoneCliente;
@@ -1175,13 +1532,10 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JTextField txtCategoriaProdutoConsultar;
     private javax.swing.JTextField txtCategoriaProdutoDigitar;
     private javax.swing.JTextField txtCepConsultar;
-    private javax.swing.JTextField txtCepDigitar;
     private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtComplemento;
     private javax.swing.JTextField txtCpfConsultar;
-    private javax.swing.JTextField txtCpfDigitar;
-    private javax.swing.JFormattedTextField txtDataNascimento;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtEstoqueProduto;
     private javax.swing.JTextField txtFabricanteProduto;
     private javax.swing.JTextField txtLogradouro;
@@ -1191,11 +1545,9 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeClienteDigitar;
     private javax.swing.JTextField txtNomeProdutoConsultar;
     private javax.swing.JTextField txtNomeProdutoDigitar;
-    private javax.swing.JTextField txtPais;
     private javax.swing.JFormattedTextField txtPreco;
     private javax.swing.JTextField txtPrecoATE;
     private javax.swing.JTextField txtPrecoDE;
-    private javax.swing.JTextField txtTelefone;
     private javax.swing.JTextField txtTelefoneConsultar;
     // End of variables declaration//GEN-END:variables
 }

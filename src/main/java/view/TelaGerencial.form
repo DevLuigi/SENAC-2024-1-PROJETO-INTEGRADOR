@@ -39,7 +39,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="PainelHeader" alignment="0" max="32767" attributes="0"/>
-                          <Component id="PainelHeader1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="PainelFooter" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -55,7 +55,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="TabbedPanePrincipal" min="-2" pref="507" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="PainelHeader1" min="-2" max="-2" attributes="0"/>
+              <Component id="PainelFooter" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -78,6 +78,9 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="PainelLateralProdutos">
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PainelLateralProdutosMouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Produtos">
@@ -213,7 +216,7 @@
                                   <Component id="btnAlterarProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnExcluirProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="8" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -337,15 +340,9 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
-                                      <Component id="btnOkProduto" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnCancelarProduto" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -375,11 +372,25 @@
                                                   <Component id="cboCor" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="lblStatusProduto" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace pref="323" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblStatusProduto" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Component id="btnOkProduto" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="btnCancelarProduto" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="246" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -421,14 +432,14 @@
                                   <Component id="lblEstoquePD" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEstoqueProduto" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="77" max="32767" attributes="0"/>
+                              <EmptySpace pref="45" max="32767" attributes="0"/>
                               <Component id="lblStatusProduto" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnOkProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnCancelarProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -445,6 +456,7 @@
                     <Component class="javax.swing.JTextField" name="txtNomeProdutoDigitar">
                       <Events>
                         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtNomeProdutoDigitarFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeProdutoDigitarActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblModeloPD">
@@ -458,6 +470,7 @@
                     <Component class="javax.swing.JTextField" name="txtModeloProdutoDigitar">
                       <Events>
                         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtModeloProdutoDigitarFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtModeloProdutoDigitarActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCategoriaPD">
@@ -484,6 +497,7 @@
                     <Component class="javax.swing.JTextField" name="txtFabricanteProduto">
                       <Events>
                         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtFabricanteProdutoFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFabricanteProdutoActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCorPD">
@@ -512,6 +526,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtEstoqueProduto">
                       <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEstoqueProdutoActionPerformed"/>
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEstoqueProdutoKeyTyped"/>
                       </Events>
                     </Component>
@@ -550,6 +565,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPrecoFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPrecoActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cboCor">
@@ -671,10 +687,9 @@
                                               <Component id="txtCpfConsultar" min="-2" pref="171" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                               <Component id="lblTelefoneCliente" min="-2" pref="58" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -687,7 +702,7 @@
                                           <Component id="txtTelefoneConsultar" pref="163" max="32767" attributes="0"/>
                                           <Component id="txtCepConsultar" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="72" max="32767" attributes="0"/>
+                                      <EmptySpace pref="76" max="32767" attributes="0"/>
                                       <Component id="btnConsultarCliente" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -715,7 +730,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="292" max="-2" attributes="0"/>
-                              <EmptySpace pref="21" max="32767" attributes="0"/>
+                              <EmptySpace pref="12" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnIncluirCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnAlterarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -828,25 +843,24 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnOK" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="lblStatusCliente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="517" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblDataNasc" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Component id="txtDataNascimento" min="-2" pref="201" max="-2" attributes="0"/>
-                                      <EmptySpace min="329" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblDataNasc" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="fTxtDataNascimento" max="32767" attributes="0"/>
+                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="lblNome" min="-2" max="-2" attributes="0"/>
@@ -857,41 +871,61 @@
                                               </Group>
                                               <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="rbtnFemininoCliente" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                                      <Component id="rbtnMasculinoCliente" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                  </Group>
                                                   <Component id="txtEmail" max="32767" attributes="0"/>
-                                                  <Component id="txtTelefone" max="32767" attributes="0"/>
-                                                  <Component id="txtCpfDigitar" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="txtNomeClienteDigitar" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="fTxtCpfDigitar" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="fTxtTelefone" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="lblEstadoCiv" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="cboEstadoCivil" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="cboEstadoCivil" pref="209" max="32767" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="rbtnFemininoCliente" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="rbtnMasculinoCliente" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblBairro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblCidade" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblEstado" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblCep" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblPais" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblLogradouro" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtCidade" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtEstado" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtPais" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtCepDigitar" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtBairro" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtLogradouro" min="-2" pref="163" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="lblCidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lblCep" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lblLogradouro" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lblEstado" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lblPais" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lblNumeroDigitar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="lblBairro" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="txtCidade" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtBairro" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtLogradouro" pref="163" max="32767" attributes="0"/>
+                                                  <Component id="fTxtCepDigitar" max="32767" attributes="0"/>
+                                                  <Component id="cboEstado" max="32767" attributes="0"/>
+                                                  <Component id="cboPais" max="32767" attributes="0"/>
+                                                  <Component id="fTxtNumeroDigitar" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblComplemento" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="txtComplemento" min="-2" pref="163" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                   </Group>
@@ -904,78 +938,90 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="txtCepDigitar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Component id="txtLogradouro" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Component id="txtBairro" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtCidade" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Component id="txtEstado" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtPais" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblPais" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtNomeClienteDigitar" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblCep" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblCPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fTxtCpfDigitar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="lblCPF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtCpfDigitar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="lblTel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                          <Component id="lblTel" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="fTxtTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblNumeroDigitar" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="lblBairro" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="rbtnFemininoCliente" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="rbtnMasculinoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblSexo" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                                          <Component id="lblEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblEstadoCiv" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cboEstadoCivil" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblSexo" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                                          <Component id="rbtnFemininoCliente" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="rbtnMasculinoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblEstadoCiv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cboEstadoCivil" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="fTxtDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDataNasc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="fTxtCepDigitar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="txtLogradouro" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="fTxtNumeroDigitar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="txtComplemento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblComplemento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="txtBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="txtCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="cboEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblDataNasc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cboPais" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPais" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="lblStatusCliente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnOK" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1038,13 +1084,14 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNomeClienteDigitar">
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtCpfDigitar">
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtTelefone">
+                      <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtNomeClienteDigitarFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeClienteDigitarActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtEmail">
                       <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtEmailFocusLost"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailActionPerformed"/>
                       </Events>
                     </Component>
@@ -1053,6 +1100,9 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroupSexo"/>
                         </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Feminino"/>
                       </Properties>
                     </Component>
@@ -1060,6 +1110,9 @@
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroupSexo"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="f2" green="f2" red="f2" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Masculino"/>
                       </Properties>
@@ -1071,7 +1124,7 @@
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="5">
-                            <StringItem index="0" value="Selecione:"/>
+                            <StringItem index="0" value="Selecione"/>
                             <StringItem index="1" value="Solteiro(a)"/>
                             <StringItem index="2" value="Casado(a)"/>
                             <StringItem index="3" value="Divorciado(a)"/>
@@ -1083,12 +1136,15 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="txtDataNascimento">
+                    <Component class="javax.swing.JFormattedTextField" name="fTxtDataNascimento">
                       <Properties>
-                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                          <Format subtype="1" type="1"/>
+                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                          <Format format="##/##/####" subtype="-1" type="5"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="fTxtDataNascimentoFocusLost"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCep">
                       <Properties>
@@ -1138,35 +1194,39 @@
                         <Property name="text" type="java.lang.String" value="Pa&#xed;s:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtCepDigitar">
-                    </Component>
                     <Component class="javax.swing.JTextField" name="txtLogradouro">
+                      <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtLogradouroFocusLost"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtBairro">
                       <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtBairroFocusLost"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBairroActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCidade">
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtEstado">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEstadoActionPerformed"/>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCidadeFocusLost"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtPais">
                     </Component>
                     <Component class="javax.swing.JButton" name="btnOK">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="OK"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOKActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCancelar">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Cancelar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel1">
+                    <Component class="javax.swing.JLabel" name="lblStatusCliente">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -1176,6 +1236,119 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="STATUS: V&#xc1;LIDO"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JFormattedTextField" name="fTxtCpfDigitar">
+                      <Properties>
+                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                          <Format format="###.###.###-##" subtype="-1" type="5"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="fTxtCpfDigitarFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fTxtCpfDigitarActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JFormattedTextField" name="fTxtTelefone">
+                      <Properties>
+                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                          <Format format="(##)# ####-####" subtype="-1" type="5"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="fTxtTelefoneFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fTxtTelefoneActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JFormattedTextField" name="fTxtCepDigitar">
+                      <Properties>
+                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                          <Format format="#####-###" subtype="-1" type="5"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="fTxtCepDigitarFocusLost"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="cboEstado">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="28">
+                            <StringItem index="0" value="Selecione"/>
+                            <StringItem index="1" value="Acre"/>
+                            <StringItem index="2" value="Alagoas"/>
+                            <StringItem index="3" value="Amap&#xe1;"/>
+                            <StringItem index="4" value="Amazonas"/>
+                            <StringItem index="5" value="Bahia"/>
+                            <StringItem index="6" value="Cear&#xe1;"/>
+                            <StringItem index="7" value="Distrito Federal"/>
+                            <StringItem index="8" value="Esp&#xed;rito Santo"/>
+                            <StringItem index="9" value="Goi&#xe1;s"/>
+                            <StringItem index="10" value="Maranh&#xe3;o"/>
+                            <StringItem index="11" value="Mato Grosso"/>
+                            <StringItem index="12" value="Mato Grosso do Sul"/>
+                            <StringItem index="13" value="Minas Gerais"/>
+                            <StringItem index="14" value="Par&#xe1;"/>
+                            <StringItem index="15" value="Para&#xed;ba"/>
+                            <StringItem index="16" value="Paran&#xe1;"/>
+                            <StringItem index="17" value="Pernambuco"/>
+                            <StringItem index="18" value="Piau&#xed;"/>
+                            <StringItem index="19" value="Rio de Janeiro"/>
+                            <StringItem index="20" value="Rio Grande do Norte"/>
+                            <StringItem index="21" value="Rio Grande do Sul"/>
+                            <StringItem index="22" value="Rond&#xf4;nia"/>
+                            <StringItem index="23" value="Roraima"/>
+                            <StringItem index="24" value="Santa Catarina"/>
+                            <StringItem index="25" value="S&#xe3;o Paulo"/>
+                            <StringItem index="26" value="Sergipe"/>
+                            <StringItem index="27" value="Tocantins"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="cboPais">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="2">
+                            <StringItem index="0" value="Selecione"/>
+                            <StringItem index="1" value="Brasil"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblNumeroDigitar">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JFormattedTextField" name="fTxtNumeroDigitar">
+                      <Properties>
+                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                          <Format format="#0" subtype="-1" type="0"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="fTxtNumeroDigitarFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fTxtNumeroDigitarActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblComplemento">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Complemento:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtComplemento">
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1307,7 +1480,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="PainelHeader1">
+    <Container class="javax.swing.JPanel" name="PainelFooter">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1318,17 +1491,17 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lblHeader1" alignment="0" max="32767" attributes="0"/>
+              <Component id="lblFooter" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lblHeader1" alignment="0" pref="32" max="32767" attributes="0"/>
+              <Component id="lblFooter" alignment="0" pref="32" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblHeader1">
+        <Component class="javax.swing.JLabel" name="lblFooter">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f2" green="f2" red="f2" type="rgb"/>
