@@ -92,17 +92,19 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="TabbedPaneProdutos" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Component id="lblProdutos" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="TabbedPaneProdutos" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -150,7 +152,7 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtModeloConsultar" pref="169" max="32767" attributes="0"/>
+                                          <Component id="txtModeloProdutoConsultar" pref="169" max="32767" attributes="0"/>
                                           <Component id="txtNomeProdutoConsultar" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -204,7 +206,7 @@
                                       <Component id="lblateProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtPrecoATE" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="bntConsultarProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtModeloConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtModeloProdutoConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblModeloProduto" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -240,7 +242,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNomeProdutoConsultar">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtModeloConsultar">
+                    <Component class="javax.swing.JTextField" name="txtModeloProdutoConsultar">
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCategoriaProduto">
                       <Properties>
@@ -290,12 +292,57 @@
                         <Component class="javax.swing.JTable" name="tblProdutos">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="4">
-                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              <Table columnCount="7" rowCount="0">
+                                <Column editable="false" title="Nome" type="java.lang.String"/>
+                                <Column editable="false" title="Modelo" type="java.lang.String"/>
+                                <Column editable="false" title="Categoria" type="java.lang.String"/>
+                                <Column editable="false" title="Pre&#xe7;o" type="java.lang.Double"/>
+                                <Column editable="false" title="Estoque" type="java.lang.Integer"/>
+                                <Column editable="false" title="Fabricante" type="java.lang.String"/>
+                                <Column editable="false" title="Cor" type="java.lang.String"/>
                               </Table>
+                            </Property>
+                            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                              <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                              </TableColumnModel>
+                            </Property>
+                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
                           </Properties>
                         </Component>
@@ -339,9 +386,13 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblAcaoDigitar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
@@ -368,7 +419,7 @@
                                                   <Component id="txtEstoqueProduto" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="txtFabricanteProduto" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="txtCategoriaProdutoDigitar" alignment="0" pref="219" max="32767" attributes="0"/>
-                                                  <Component id="txtPreco" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtPrecoProduto" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="cboCor" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -397,7 +448,9 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="lblAcaoDigitar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblNomePD" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtNomeProdutoDigitar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -425,14 +478,14 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblPrecoPD" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPreco" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPrecoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblEstoquePD" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEstoqueProduto" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="45" max="32767" attributes="0"/>
+                              <EmptySpace pref="53" max="32767" attributes="0"/>
                               <Component id="lblStatusProduto" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -557,15 +610,15 @@
                         <Property name="text" type="java.lang.String" value="STATUS: V&#xc1;LIDO"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="txtPreco">
+                    <Component class="javax.swing.JFormattedTextField" name="txtPrecoProduto">
                       <Properties>
                         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                           <Format format="###,###.##" subtype="-1" type="0"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPrecoFocusLost"/>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPrecoActionPerformed"/>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPrecoProdutoFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPrecoProdutoActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cboCor">
@@ -584,6 +637,17 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblAcaoDigitar">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="18" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Inserir"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -970,9 +1034,9 @@
                                           <Component id="rbtnMasculinoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace pref="12" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblEstadoCiv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="cboEstadoCivil" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblEstadoCiv" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
