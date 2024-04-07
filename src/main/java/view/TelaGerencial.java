@@ -356,16 +356,6 @@ public class TelaGerencial extends javax.swing.JFrame {
 
         txtPrecoProduto.setBackground(new java.awt.Color(255, 221, 40));
         txtPrecoProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-        txtPrecoProduto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtPrecoProdutoFocusLost(evt);
-            }
-        });
-        txtPrecoProduto.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPrecoProdutoKeyPressed(evt);
-            }
-        });
 
         javax.swing.GroupLayout PainelDigitarProdutosLayout = new javax.swing.GroupLayout(PainelDigitarProdutos);
         PainelDigitarProdutos.setLayout(PainelDigitarProdutosLayout);
@@ -1141,14 +1131,18 @@ public class TelaGerencial extends javax.swing.JFrame {
         String categoria = this.txtCategoriaProdutoDigitar.getText().trim();
         String fabricante = this.txtFabricanteProduto.getText().trim();
         String cor = this.cboCor.getSelectedItem().toString();
-        String preco = this.txtPrecoProduto.getText().trim();
+        String precoString = this.txtPrecoProduto.getText().trim();
         String estoqueString = this.txtEstoqueProduto.getText().trim();
                 
         if (validaCamposObrigatoriosProduto()) {
             return;
         }
         
-        // Converte apenas se estiver preenchido
+        // Tratando string de preco para evitar erro de conversão
+        precoString = precoString.replaceAll("\\.", "");
+        precoString = precoString.replaceAll("\\,", ".");
+        
+        double preco = Double.parseDouble(precoString);
         int estoque = Integer.parseInt(estoqueString);
         
         DefaultTableModel tabela = (DefaultTableModel)this.tblProdutos.getModel();
@@ -1181,6 +1175,11 @@ public class TelaGerencial extends javax.swing.JFrame {
         
         if (nome.equals("") || categoria.equals("") || preco.equals("") || estoque.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos obrigatórios");
+            return true;
+        }
+        
+        if (preco.charAt(0) == '-') {
+            JOptionPane.showMessageDialog(rootPane, "Preencha o preço com um valor positivo");
             return true;
         }
         
@@ -1424,22 +1423,6 @@ public class TelaGerencial extends javax.swing.JFrame {
             this.lblStatusProduto.setForeground(Color.green);
         }
     }//GEN-LAST:event_txtEstoqueProdutoFocusLost
-
-    private void txtPrecoProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrecoProdutoFocusLost
-        if (Validacao.validaStringVazia(this.txtPrecoProduto.getText())) {
-            this.lblStatusProduto.setText("STATUS: ESTOQUE INVÁLIDO");
-            this.lblStatusProduto.setForeground(Color.red);
-            this.txtPrecoProduto.setText("");
-            this.txtPrecoProduto.setValue(null);
-        } else {
-            this.lblStatusProduto.setText("STATUS: VÁLIDO");
-            this.lblStatusProduto.setForeground(Color.green);
-        }
-    }//GEN-LAST:event_txtPrecoProdutoFocusLost
-
-    private void txtPrecoProdutoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecoProdutoKeyPressed
-      
-    }//GEN-LAST:event_txtPrecoProdutoKeyPressed
 
     /**
      * @param args the command line arguments
