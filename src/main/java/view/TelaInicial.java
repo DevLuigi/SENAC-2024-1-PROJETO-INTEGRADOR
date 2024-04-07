@@ -1,7 +1,5 @@
 package view;
 
-import java.awt.Color;
-
 public class TelaInicial extends javax.swing.JFrame {
 
     /**
@@ -9,8 +7,6 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     public TelaInicial() {
         initComponents();
-        this.getContentPane().setBackground(Color.decode("#111111"));
-        
     }
 
     /**

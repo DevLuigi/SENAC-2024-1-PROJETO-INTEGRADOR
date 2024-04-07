@@ -25,9 +25,17 @@ public class Validacao {
         return true;
     }
     
-    public static boolean validaConversaoNumero(String numero) {
+    public static boolean validaConversaoInteiro(String numero) {
         try {
             return Integer.parseInt(numero) > 0;
+        } catch(NumberFormatException err) {
+            return false;
+        }
+    }
+    
+    public static boolean validaConversaoDecimal(String numero) {
+        try {
+            return Double.parseDouble(numero) > 0;
         } catch(NumberFormatException err) {
             return false;
         }
