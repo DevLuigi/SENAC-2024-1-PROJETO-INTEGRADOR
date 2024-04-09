@@ -66,8 +66,13 @@ public class Produto {
         this.estoque = estoque;
     }
 
-    public Produto() {}
-
+    public Produto(String nome, String categoria, double preco, int estoque) {
+        this.nome = nome;
+        this.categoria = categoria;
+        this.preco = preco;
+        this.estoque = estoque;
+    }
+    
     public Produto(String nome, String modelo, String categoria, String fabricante, String cor, double preco, int estoque) {
         this.nome = nome;
         this.modelo = modelo;
@@ -76,9 +81,5 @@ public class Produto {
         this.cor = cor;
         this.preco = preco;
         this.estoque = estoque;
-    }
-  
-    public static void inserirProduto() {
-        // ver com o professor como fazer assim
     }
 }
