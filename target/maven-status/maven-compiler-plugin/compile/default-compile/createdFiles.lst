@@ -22,6 +22,7 @@ view\TelaGerencial$28.class
 view\TelaGerencial$33.class
 view\TelaGerencial$23.class
 view\TelaGerencial$13.class
+model\Venda.class
 controller\Validacao.class
 view\TelaGerencial.class
 view\TelaGerencial$21.class
@@ -29,6 +30,7 @@ view\TelaGerencial$15.class
 view\TelaGerencial$6.class
 view\TelaGerencial$25.class
 view\TelaGerencial$31.class
+model\Relatorio.class
 view\TelaGerencial$1.class
 view\TelaGerencial$11.class
 view\TelaInicial.class
