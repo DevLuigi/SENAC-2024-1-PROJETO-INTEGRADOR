@@ -2,6 +2,11 @@ package view;
 
 import java.awt.Color;
 import controller.*;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import javax.swing.ButtonModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.*;
 
@@ -42,7 +47,7 @@ public class TelaGerencial extends javax.swing.JFrame {
         txtPrecoATE = new javax.swing.JTextField();
         bntConsultarProduto = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblProdutos = new javax.swing.JTable();
+        tblProduto = new javax.swing.JTable();
         btnIncluirProduto = new javax.swing.JButton();
         btnAlterarProduto = new javax.swing.JButton();
         btnExcluirProduto = new javax.swing.JButton();
@@ -63,7 +68,7 @@ public class TelaGerencial extends javax.swing.JFrame {
         btnCancelarProduto = new javax.swing.JButton();
         lblStatusProduto = new javax.swing.JLabel();
         cboCor = new javax.swing.JComboBox<>();
-        lblAcaoDigitar = new javax.swing.JLabel();
+        lblAcaoDigitarProduto = new javax.swing.JLabel();
         txtPrecoProduto = new javax.swing.JFormattedTextField();
         lblProdutos = new javax.swing.JLabel();
         PainelLateralCliente = new javax.swing.JPanel();
@@ -79,7 +84,7 @@ public class TelaGerencial extends javax.swing.JFrame {
         txtCepConsultar = new javax.swing.JTextField();
         btnConsultarCliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TableConsultarCliente = new javax.swing.JTable();
+        tblCliente = new javax.swing.JTable();
         btnIncluirCliente = new javax.swing.JButton();
         btnAlterarCliente = new javax.swing.JButton();
         btnExcluirCliente = new javax.swing.JButton();
@@ -118,6 +123,7 @@ public class TelaGerencial extends javax.swing.JFrame {
         fTxtNumeroDigitar = new javax.swing.JFormattedTextField();
         lblComplemento = new javax.swing.JLabel();
         txtComplemento = new javax.swing.JTextField();
+        lblAcaoDigitarCliente = new javax.swing.JLabel();
         lblClientes = new javax.swing.JLabel();
         PainelLateralVendas = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -215,7 +221,7 @@ public class TelaGerencial extends javax.swing.JFrame {
             }
         });
 
-        tblProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        tblProduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -238,7 +244,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tblProdutos);
+        jScrollPane2.setViewportView(tblProduto);
 
         btnIncluirProduto.setText("Incluir");
         btnIncluirProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -327,7 +333,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                     .addComponent(btnIncluirProduto)
                     .addComponent(btnAlterarProduto)
                     .addComponent(btnExcluirProduto))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TabbedPaneProdutos.addTab("Consulta", PainelConsultaProdutos);
@@ -402,9 +408,9 @@ public class TelaGerencial extends javax.swing.JFrame {
 
         cboCor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sem cor", "Amarelo", "Azul", "Branco", "Preto", "Vermelho" }));
 
-        lblAcaoDigitar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblAcaoDigitar.setForeground(new java.awt.Color(51, 51, 51));
-        lblAcaoDigitar.setText("Inserir");
+        lblAcaoDigitarProduto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblAcaoDigitarProduto.setForeground(new java.awt.Color(51, 51, 51));
+        lblAcaoDigitarProduto.setText("Inserir");
 
         txtPrecoProduto.setBackground(new java.awt.Color(255, 221, 40));
         txtPrecoProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
@@ -417,7 +423,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
-                        .addComponent(lblAcaoDigitar)
+                        .addComponent(lblAcaoDigitarProduto)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
                         .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -456,7 +462,7 @@ public class TelaGerencial extends javax.swing.JFrame {
             PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelDigitarProdutosLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(lblAcaoDigitar)
+                .addComponent(lblAcaoDigitarProduto)
                 .addGap(18, 18, 18)
                 .addGroup(PainelDigitarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomePD)
@@ -546,21 +552,51 @@ public class TelaGerencial extends javax.swing.JFrame {
 
         btnConsultarCliente.setText("Consultar");
 
-        TableConsultarCliente.setModel(new javax.swing.table.DefaultTableModel(
+        tblCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome", "CPF", "Telefone", "E-mail", "CEP", "Logradouro", "Numero", "Complemento", "Bairro", "Cidade", "Estado", "Pais", "Dt. Nascimento", "Sexo", "Estado civil"
             }
-        ));
-        jScrollPane1.setViewportView(TableConsultarCliente);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblCliente);
 
         btnIncluirCliente.setText("Incluir");
+        btnIncluirCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirClienteActionPerformed(evt);
+            }
+        });
 
         btnAlterarCliente.setText("Alterar");
+        btnAlterarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarClienteActionPerformed(evt);
+            }
+        });
 
         btnExcluirCliente.setText("Excluir");
+        btnExcluirCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PainelConsultaClientesLayout = new javax.swing.GroupLayout(PainelConsultaClientes);
         PainelConsultaClientes.setLayout(PainelConsultaClientesLayout);
@@ -651,12 +687,14 @@ public class TelaGerencial extends javax.swing.JFrame {
         lblDataNasc.setForeground(new java.awt.Color(51, 51, 51));
         lblDataNasc.setText("Data de nasc:");
 
+        txtNomeClienteDigitar.setBackground(new java.awt.Color(255, 221, 40));
         txtNomeClienteDigitar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtNomeClienteDigitarFocusLost(evt);
             }
         });
 
+        txtEmail.setBackground(new java.awt.Color(255, 221, 40));
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtEmailFocusLost(evt);
@@ -684,7 +722,7 @@ public class TelaGerencial extends javax.swing.JFrame {
         cboEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Solteiro(a)", "Casado(a)", "Divorciado(a)", "Viúvo(a)" }));
 
         try {
-            fTxtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            fTxtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -712,12 +750,14 @@ public class TelaGerencial extends javax.swing.JFrame {
         lblPais.setForeground(new java.awt.Color(51, 51, 51));
         lblPais.setText("País:");
 
+        txtLogradouro.setBackground(new java.awt.Color(255, 221, 40));
         txtLogradouro.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtLogradouroFocusLost(evt);
             }
         });
 
+        txtBairro.setBackground(new java.awt.Color(255, 221, 40));
         txtBairro.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtBairroFocusLost(evt);
@@ -729,6 +769,7 @@ public class TelaGerencial extends javax.swing.JFrame {
             }
         });
 
+        txtCidade.setBackground(new java.awt.Color(255, 221, 40));
         txtCidade.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtCidadeFocusLost(evt);
@@ -753,6 +794,7 @@ public class TelaGerencial extends javax.swing.JFrame {
         lblStatusCliente.setForeground(new java.awt.Color(51, 255, 0));
         lblStatusCliente.setText("STATUS: VÁLIDO");
 
+        fTxtCpfDigitar.setBackground(new java.awt.Color(255, 221, 40));
         try {
             fTxtCpfDigitar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
@@ -785,6 +827,7 @@ public class TelaGerencial extends javax.swing.JFrame {
             }
         });
 
+        fTxtCepDigitar.setBackground(new java.awt.Color(255, 221, 40));
         try {
             fTxtCepDigitar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
@@ -796,13 +839,16 @@ public class TelaGerencial extends javax.swing.JFrame {
             }
         });
 
+        cboPais.setBackground(new java.awt.Color(255, 221, 40));
         cboPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Brasil" }));
 
+        cboEstado.setBackground(new java.awt.Color(255, 221, 40));
         cboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins" }));
 
         lblNumeroDigitar.setForeground(new java.awt.Color(51, 51, 51));
         lblNumeroDigitar.setText("Número:");
 
+        fTxtNumeroDigitar.setBackground(new java.awt.Color(255, 221, 40));
         fTxtNumeroDigitar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         fTxtNumeroDigitar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -818,6 +864,12 @@ public class TelaGerencial extends javax.swing.JFrame {
         lblComplemento.setForeground(new java.awt.Color(51, 51, 51));
         lblComplemento.setText("Complemento:");
 
+        txtComplemento.setBackground(new java.awt.Color(255, 221, 40));
+
+        lblAcaoDigitarCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblAcaoDigitarCliente.setForeground(new java.awt.Color(51, 51, 51));
+        lblAcaoDigitarCliente.setText("Inserir");
+
         javax.swing.GroupLayout PainelDigitarClientesLayout = new javax.swing.GroupLayout(PainelDigitarClientes);
         PainelDigitarClientes.setLayout(PainelDigitarClientesLayout);
         PainelDigitarClientesLayout.setHorizontalGroup(
@@ -826,79 +878,88 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblAcaoDigitarCliente)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                                .addComponent(lblDataNasc)
+                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addComponent(lblDataNasc)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(fTxtDataNascimento))
+                                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addComponent(lblEstadoCiv)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cboEstadoCivil, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblNome)
+                                            .addComponent(lblCPF)
+                                            .addComponent(lblTel)
+                                            .addComponent(lblEmail)
+                                            .addComponent(lblSexo))
+                                        .addGap(26, 26, 26)
+                                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtEmail)
+                                            .addComponent(txtNomeClienteDigitar)
+                                            .addComponent(fTxtCpfDigitar)
+                                            .addComponent(fTxtTelefone)))
+                                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addGap(74, 74, 74)
+                                        .addComponent(rbtnFemininoCliente)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                                        .addComponent(rbtnMasculinoCliente)
+                                        .addGap(26, 26, 26)))
+                                .addGap(36, 36, 36)
+                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblCep)
+                                            .addComponent(lblLogradouro)
+                                            .addComponent(lblNumeroDigitar))
+                                        .addGap(21, 21, 21)
+                                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(fTxtNumeroDigitar, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtLogradouro, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(fTxtCepDigitar, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblEstado)
+                                            .addComponent(lblPais))
+                                        .addGap(48, 48, 48)
+                                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cboEstado, 0, 206, Short.MAX_VALUE)
+                                            .addComponent(cboPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addComponent(lblComplemento)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtComplemento))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDigitarClientesLayout.createSequentialGroup()
+                                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblBairro)
+                                            .addComponent(lblCidade))
+                                        .addGap(46, 46, 46)
+                                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtBairro)
+                                            .addComponent(txtCidade)))))
+                            .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnOK)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fTxtDataNascimento))
-                            .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                                .addComponent(lblEstadoCiv)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cboEstadoCivil, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNome)
-                                    .addComponent(lblCPF)
-                                    .addComponent(lblTel)
-                                    .addComponent(lblEmail)
-                                    .addComponent(lblSexo))
-                                .addGap(26, 26, 26)
-                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmail)
-                                    .addComponent(txtNomeClienteDigitar)
-                                    .addComponent(fTxtCpfDigitar)
-                                    .addComponent(fTxtTelefone)))
-                            .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                                .addGap(74, 74, 74)
-                                .addComponent(rbtnFemininoCliente)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                                .addComponent(rbtnMasculinoCliente)
-                                .addGap(26, 26, 26)))
-                        .addGap(36, 36, 36)
-                        .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCep)
-                                    .addComponent(lblLogradouro)
-                                    .addComponent(lblNumeroDigitar))
-                                .addGap(21, 21, 21)
-                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fTxtNumeroDigitar, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtLogradouro, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(fTxtCepDigitar, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDigitarClientesLayout.createSequentialGroup()
-                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEstado)
-                                    .addComponent(lblPais))
-                                .addGap(48, 48, 48)
-                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cboEstado, 0, 206, Short.MAX_VALUE)
-                                    .addComponent(cboPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDigitarClientesLayout.createSequentialGroup()
-                                .addComponent(lblComplemento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtComplemento))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDigitarClientesLayout.createSequentialGroup()
-                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblBairro)
-                                    .addComponent(lblCidade))
-                                .addGap(46, 46, 46)
-                                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtBairro)
-                                    .addComponent(txtCidade))))
+                                .addComponent(btnCancelar)
+                                .addGap(254, 254, 254)))
                         .addGap(44, 44, 44))
                     .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
                         .addComponent(lblStatusCliente)
-                        .addGap(164, 164, 164)
-                        .addComponent(btnOK)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCancelar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         PainelDigitarClientesLayout.setVerticalGroup(
             PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(22, 22, 22)
+                .addComponent(lblAcaoDigitarCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNome)
                     .addComponent(txtNomeClienteDigitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -936,7 +997,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                         .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fTxtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDataNasc))
-                        .addGap(81, 81, 81))
+                        .addGap(28, 28, 28))
                     .addGroup(PainelDigitarClientesLayout.createSequentialGroup()
                         .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -956,14 +1017,13 @@ public class TelaGerencial extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cboPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPais))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnOK)
-                        .addComponent(btnCancelar))
-                    .addComponent(lblStatusCliente))
-                .addGap(55, 55, 55))
+                            .addComponent(lblPais))))
+                .addGap(27, 27, 27)
+                .addGroup(PainelDigitarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblStatusCliente)
+                    .addComponent(btnOK)
+                    .addComponent(btnCancelar))
+                .addGap(58, 58, 58))
         );
 
         TabbedPaneClientes.addTab("Digitar", PainelDigitarClientes);
@@ -1148,7 +1208,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                     .addComponent(jButton10)
                     .addComponent(jButton11)
                     .addComponent(jButton12))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Consuta", jPanel1);
@@ -1526,11 +1586,14 @@ public class TelaGerencial extends javax.swing.JFrame {
         
         // Volta para guia de consulta
         this.TabbedPaneProdutos.setSelectedIndex(0);
-        this.lblAcaoDigitar.setText("Inserir");
+        this.lblAcaoDigitarProduto.setText("Inserir");
     }//GEN-LAST:event_btnCancelarProdutoActionPerformed
 
     private void btnOkProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkProdutoActionPerformed
-        //Oi
+        if (validaCamposObrigatoriosProduto()) {
+            return;
+        }
+        
         String nome = this.txtNomeProdutoDigitar.getText().trim();
         String modelo = this.txtModeloProdutoDigitar.getText().trim();
         String categoria = this.txtCategoriaProdutoDigitar.getText().trim();
@@ -1538,10 +1601,6 @@ public class TelaGerencial extends javax.swing.JFrame {
         String cor = this.cboCor.getSelectedItem().toString();
         String precoString = this.txtPrecoProduto.getText().trim();
         String estoqueString = this.txtEstoqueProduto.getText().trim();
-                
-        if (validaCamposObrigatoriosProduto()) {
-            return;
-        }
         
         // Tratando string de preco para evitar erro de conversão
         precoString = precoString.replaceAll("\\.", "");
@@ -1550,13 +1609,13 @@ public class TelaGerencial extends javax.swing.JFrame {
         double preco = Double.parseDouble(precoString);
         int estoque = Integer.parseInt(estoqueString);
         
-        DefaultTableModel tabela = (DefaultTableModel)this.tblProdutos.getModel();
-        if (this.lblAcaoDigitar.getText().equals("Inserir")) {
+        DefaultTableModel tabela = (DefaultTableModel)this.tblProduto.getModel();
+        if (this.lblAcaoDigitarProduto.getText().equals("Inserir")) {
             tabela.addRow(new Object[]{nome, modelo, categoria, preco, estoque, fabricante, cor});
             limpaCamposProduto();
             JOptionPane.showMessageDialog(rootPane, "Produto inserido com sucesso");
         } else {
-            int linha = this.tblProdutos.getSelectedRow();
+            int linha = this.tblProduto.getSelectedRow();
             tabela.setValueAt(nome, linha, 0);
             tabela.setValueAt(modelo, linha, 1);
             tabela.setValueAt(categoria, linha, 2);
@@ -1568,7 +1627,7 @@ public class TelaGerencial extends javax.swing.JFrame {
             limpaCamposProduto();     
             JOptionPane.showMessageDialog(rootPane, "Produto alterado com sucesso");
             this.TabbedPaneProdutos.setSelectedIndex(0);
-            this.lblAcaoDigitar.setText("Inserir");
+            this.lblAcaoDigitarProduto.setText("Inserir");
         }
     }//GEN-LAST:event_btnOkProdutoActionPerformed
     
@@ -1604,16 +1663,16 @@ public class TelaGerencial extends javax.swing.JFrame {
     
     private void btnIncluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirProdutoActionPerformed
         this.TabbedPaneProdutos.setSelectedIndex(1);
-        this.lblAcaoDigitar.setText("Inserir");
+        this.lblAcaoDigitarProduto.setText("Inserir");
     }//GEN-LAST:event_btnIncluirProdutoActionPerformed
 
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
-        if (this.tblProdutos.getRowCount() <= 0) {
+        if (this.tblProduto.getRowCount() <= 0) {
             JOptionPane.showMessageDialog(rootPane, "Não há itens a serem excluídos");
             return;
         }
         
-        DefaultTableModel tabela = (DefaultTableModel)this.tblProdutos.getModel();
+        DefaultTableModel tabela = (DefaultTableModel)this.tblProduto.getModel();
         
         Object[] opcoes = {"Sim, quero excluir", "Não, cancelar"};
         int escolha = JOptionPane.showOptionDialog(
@@ -1626,17 +1685,17 @@ public class TelaGerencial extends javax.swing.JFrame {
             return;
         }
         
-        tabela.removeRow(this.tblProdutos.getSelectedRow());
+        tabela.removeRow(this.tblProduto.getSelectedRow());
     }//GEN-LAST:event_btnExcluirProdutoActionPerformed
 
     private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
-        if (this.tblProdutos.getRowCount() <= 0) {
+        if (this.tblProduto.getRowCount() <= 0) {
             JOptionPane.showMessageDialog(rootPane, "Não há itens a serem alterados");
             return;
         }
         
-        DefaultTableModel tabela = (DefaultTableModel)this.tblProdutos.getModel();
-        int linha = this.tblProdutos.getSelectedRow();
+        DefaultTableModel tabela = (DefaultTableModel)this.tblProduto.getModel();
+        int linha = this.tblProduto.getSelectedRow();
         
         this.txtNomeProdutoDigitar.setText(tabela.getValueAt(linha, 0).toString());
         this.txtModeloProdutoDigitar.setText(tabela.getValueAt(linha, 1).toString());
@@ -1656,7 +1715,7 @@ public class TelaGerencial extends javax.swing.JFrame {
             }
         }
 
-        this.lblAcaoDigitar.setText("Alterar");
+        this.lblAcaoDigitarProduto.setText("Alterar");
         this.TabbedPaneProdutos.setSelectedIndex(1);
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
 
@@ -1791,31 +1850,151 @@ public class TelaGerencial extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCidadeFocusLost
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
-        JOptionPane.showMessageDialog(rootPane,"Em desenvolvimento...");
-        // Fazer lógica para válidar input e inserir linha
+//        if(validaCamposObrigatoriosCliente()) {
+//            return;
+//        }
+        
+        String nome = this.txtNomeClienteDigitar.getText();
+        String cpf = this.fTxtCpfDigitar.getText();
+        String telefone = this.fTxtTelefone.getText();
+        String email = this.txtEmail.getText();
+        
+        String sexo;
+        if (this.rbtnFemininoCliente.isSelected()) {
+            sexo = this.rbtnFemininoCliente.getActionCommand().substring(0, 1);
+        } else {
+            sexo = this.rbtnMasculinoCliente.getActionCommand().substring(0, 1);
+        }
+        
+        String estadoCivil = this.cboEstadoCivil.getSelectedItem().toString();
+        String dataNascimento = this.fTxtDataNascimento.getText();
+        
+//        // Tratando data
+//        Date dataNascimento = null;
+//        String data = this.fTxtDataNascimento.getText();
+//        SimpleDateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd"); 
+//        try {
+//            dataNascimento = dataFormatada.parse(data);
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(rootPane, "Data inválida");
+//        }
+        
+        String cep = this.fTxtCepDigitar.getText();
+        String logradouro = this.txtLogradouro.getText();
+        int numero = 30; //Integer.parseInt(this.fTxtNumeroDigitar.getText());
+        String complemento = this.txtComplemento.getText();
+        String bairro = this.txtBairro.getText();
+        String cidade = this.txtCidade.getText();
+        String estado = this.cboEstado.getSelectedItem().toString();
+        String pais = this.cboPais.getSelectedItem().toString();
+        
+        DefaultTableModel tabela = (DefaultTableModel)this.tblCliente.getModel();
+        if (this.lblAcaoDigitarCliente.getText().equals("Inserir")) {
+            tabela.addRow(
+                    new Object[]{
+                            nome, 
+                            cpf, 
+                            telefone, 
+                            email, 
+                            cep,
+                            logradouro,
+                            numero,
+                            complemento,
+                            bairro,
+                            cidade,
+                            estado,
+                            pais,
+                            dataNascimento,
+                            sexo, 
+                            estadoCivil
+                    });
+            limpaCamposCliente();
+            JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso");
+        } else {
+            int linha = this.tblCliente.getSelectedRow();
+            tabela.setValueAt(nome, linha, 0);
+            tabela.setValueAt(cpf, linha, 1);
+            tabela.setValueAt(telefone, linha, 2);
+            tabela.setValueAt(email, linha, 3);
+            tabela.setValueAt(cep, linha, 4);
+            tabela.setValueAt(logradouro, linha, 5);
+            tabela.setValueAt(numero, linha, 6);
+            tabela.setValueAt(complemento, linha, 7);
+            tabela.setValueAt(bairro, linha, 8);
+            tabela.setValueAt(cidade, linha, 9);
+            tabela.setValueAt(estado, linha, 10);
+            tabela.setValueAt(pais, linha, 11);
+            tabela.setValueAt(dataNascimento, linha, 12);
+            tabela.setValueAt(sexo, linha, 13);
+            tabela.setValueAt(estadoCivil, linha, 14);
+       
+            limpaCamposCliente();     
+            JOptionPane.showMessageDialog(rootPane, "Cadastro do cliente alterado com sucesso");
+            this.TabbedPaneClientes.setSelectedIndex(0);
+            this.lblAcaoDigitarCliente.setText("Inserir");
+        }
     }//GEN-LAST:event_btnOKActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // Zera os campos
-        //Não está zerando os campos Formatted Field criados (variaveis que começam com fTXT)
+    private void limpaCamposCliente() {
+        // textField
         this.txtNomeClienteDigitar.setText("");
-        this.fTxtCpfDigitar.setText("");
-        this.fTxtTelefone.setText("");
-        this.txtEmail.setText("");
-        this.buttonGroupSexo.clearSelection();
-        this.cboEstadoCivil.setSelectedIndex(0);
-        this.fTxtDataNascimento.setText("");
-        this.fTxtCepDigitar.setText("");
         this.txtLogradouro.setText("");
-        this.fTxtNumeroDigitar.setText("");
+        this.txtEmail.setText("");
         this.txtComplemento.setText("");
         this.txtBairro.setText("");
         this.txtCidade.setText("");
+        
+        // JFormattedField
+        this.fTxtCpfDigitar.setText("");
+        this.fTxtCpfDigitar.setValue(null);
+        this.fTxtTelefone.setText("");
+        this.fTxtTelefone.setValue(null);
+        this.fTxtDataNascimento.setText("");
+        this.fTxtDataNascimento.setValue(null);
+        this.fTxtCepDigitar.setText("");
+        this.fTxtCepDigitar.setValue(null);
+        this.fTxtNumeroDigitar.setText("");
+        this.fTxtNumeroDigitar.setValue(null);
+        
+        // buttonGroup and comboBox
+        this.buttonGroupSexo.clearSelection();
+        this.cboEstadoCivil.setSelectedIndex(0);
         this.cboEstado.setSelectedIndex(0);
         this.cboPais.setSelectedIndex(0);
+    }
+    
+    private boolean validaCamposObrigatoriosCliente() {
+        String nome = this.txtNomeClienteDigitar.getText();
+        String cpf = this.fTxtCpfDigitar.getText();
+        String email = this.txtEmail.getText();
+        String cep = this.fTxtCepDigitar.getText();
+        String logradouro = this.txtLogradouro.getText();
+        String numero = this.fTxtNumeroDigitar.getText();
+        String complemento = this.txtComplemento.getText();
+        String bairro = this.txtBairro.getText();
+        String cidade = this.txtCidade.getText();
+        String estado = this.cboEstado.getSelectedItem().toString();
+        String pais = this.cboPais.getSelectedItem().toString();
         
-        // Volta para guia de consulta de clientes
+        String[] infos = {
+            nome, cpf, email, cep, logradouro, complemento, bairro, cidade, estado, pais
+        };
+        
+        for (int i = 0; i < infos.length; i++) {
+            if (infos[i].equals("") || infos[i].equals("Selecione")) {
+                JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos obrigatórios");
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        limpaCamposCliente();
+        
         this.TabbedPaneClientes.setSelectedIndex(0);
+        this.lblAcaoDigitarCliente.setText("Inserir");
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtEstoqueProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEstoqueProdutoFocusLost
@@ -1833,6 +2012,76 @@ public class TelaGerencial extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton15ActionPerformed
 
+    private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
+        if (this.tblCliente.getRowCount() <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "Não há itens a serem excluídos");
+            return;
+        }
+        
+        DefaultTableModel tabela = (DefaultTableModel)this.tblCliente.getModel();
+        
+        Object[] opcoes = {"Sim, quero excluir", "Não, cancelar"};
+        int escolha = JOptionPane.showOptionDialog(
+                rootPane, 
+                "Tem certeza que deseja excluir esse cliente?", 
+                "Excluir item", JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+        
+        if(escolha == 1 || escolha == JOptionPane.CLOSED_OPTION) {
+            return;
+        }
+        
+        tabela.removeRow(this.tblCliente.getSelectedRow());
+    }//GEN-LAST:event_btnExcluirClienteActionPerformed
+
+    private void btnAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarClienteActionPerformed
+        if (this.tblCliente.getRowCount() <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "Não há itens a serem alterados");
+            return;
+        }
+        
+        DefaultTableModel tabela = (DefaultTableModel)this.tblCliente.getModel();
+        int linha = this.tblCliente.getSelectedRow();
+                                    
+        // textField
+        this.txtNomeClienteDigitar.setText(tabela.getValueAt(linha, 0).toString());
+        this.fTxtCpfDigitar.setText(tabela.getValueAt(linha, 1).toString());
+        this.fTxtTelefone.setText(tabela.getValueAt(linha, 2).toString());
+        this.txtEmail.setText(tabela.getValueAt(linha, 3).toString());
+        this.fTxtCepDigitar.setText(tabela.getValueAt(linha, 4).toString());
+        this.txtLogradouro.setText(tabela.getValueAt(linha, 5).toString());
+        this.fTxtNumeroDigitar.setText(tabela.getValueAt(linha, 6).toString());
+        this.txtComplemento.setText(tabela.getValueAt(linha, 7).toString());
+        this.txtBairro.setText(tabela.getValueAt(linha, 8).toString());
+        this.txtCidade.setText(tabela.getValueAt(linha, 9).toString());
+        this.fTxtDataNascimento.setText(tabela.getValueAt(linha, 12).toString());
+        
+        // preenchendo combos
+        acharItemCombo(this.cboEstado, tabela, linha, 10);
+        acharItemCombo(this.cboPais, tabela, linha, 11);
+        acharItemCombo(this.cboEstadoCivil, tabela, linha, 14);
+        
+        this.buttonGroupSexo.setSelected(this.buttonGroupSexo.getSelection(), true);
+        
+        this.lblAcaoDigitarCliente.setText("Alterar");
+        this.TabbedPaneClientes.setSelectedIndex(1);
+    }//GEN-LAST:event_btnAlterarClienteActionPerformed
+
+    private void btnIncluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirClienteActionPerformed
+        this.TabbedPaneClientes.setSelectedIndex(1);
+        this.lblAcaoDigitarCliente.setText("Inserir");
+    }//GEN-LAST:event_btnIncluirClienteActionPerformed
+
+    private void acharItemCombo(JComboBox combo, DefaultTableModel tabela, int linha, int coluna) {
+        for (int i = 0; i < combo.getItemCount(); i++) {
+            combo.setSelectedIndex(i);
+            
+            if(combo.getSelectedItem().toString().equals(tabela.getValueAt(linha, coluna).toString())) {
+                combo.setSelectedIndex(i);
+                break;
+            }
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -1883,7 +2132,6 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JTabbedPane TabbedPaneClientes;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
     private javax.swing.JTabbedPane TabbedPaneProdutos;
-    private javax.swing.JTable TableConsultarCliente;
     private javax.swing.JButton bntConsultarProduto;
     private javax.swing.JButton btnAlterarCliente;
     private javax.swing.JButton btnAlterarProduto;
@@ -1959,7 +2207,8 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JLabel lblAcaoDigitar;
+    private javax.swing.JLabel lblAcaoDigitarCliente;
+    private javax.swing.JLabel lblAcaoDigitarProduto;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblCPFCliente;
@@ -1999,7 +2248,8 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JLabel lblateProduto;
     private javax.swing.JRadioButton rbtnFemininoCliente;
     private javax.swing.JRadioButton rbtnMasculinoCliente;
-    private javax.swing.JTable tblProdutos;
+    private javax.swing.JTable tblCliente;
+    private javax.swing.JTable tblProduto;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCategoriaProdutoConsultar;
     private javax.swing.JTextField txtCategoriaProdutoDigitar;
