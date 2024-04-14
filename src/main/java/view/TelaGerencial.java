@@ -1530,6 +1530,7 @@ public class TelaGerencial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarProdutoActionPerformed
 
     private void btnOkProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkProdutoActionPerformed
+        //Oi
         String nome = this.txtNomeProdutoDigitar.getText().trim();
         String modelo = this.txtModeloProdutoDigitar.getText().trim();
         String categoria = this.txtCategoriaProdutoDigitar.getText().trim();
