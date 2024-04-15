@@ -26,7 +26,6 @@ public class TelaInicial extends javax.swing.JFrame {
         setTitle("Tela inicial");
 
         jLabel1.setFont(new java.awt.Font("Fira Code SemiBold", 0, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(242, 242, 242));
         jLabel1.setText("Xablau tech");
 
         bntEntrar.setBackground(new java.awt.Color(218, 122, 12));
@@ -52,7 +51,7 @@ public class TelaInicial extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(141, 141, 141))
             .addGroup(layout.createSequentialGroup()
-                .addGap(214, 214, 214)
+                .addGap(227, 227, 227)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
