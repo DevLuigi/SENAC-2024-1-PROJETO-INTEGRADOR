@@ -1664,6 +1664,11 @@ public class TelaGerencial extends javax.swing.JFrame {
         PainelHeader.setToolTipText("Painel header");
 
         btnSair.setText("Sair");
+        btnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSairMouseEntered(evt);
+            }
+        });
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -2295,6 +2300,10 @@ public class TelaGerencial extends javax.swing.JFrame {
         this.TabbedPaneClientes.setSelectedIndex(1);
         this.lblAcaoDigitarCliente.setText("Inserir");
     }//GEN-LAST:event_btnIncluirClienteActionPerformed
+
+    private void btnSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseEntered
+        this.btnSair.setBackground(Color.red);
+    }//GEN-LAST:event_btnSairMouseEntered
 
     private void acharItemCombo(JComboBox combo, DefaultTableModel tabela, int linha, int coluna) {
         for (int i = 0; i < combo.getItemCount(); i++) {
