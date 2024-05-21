@@ -1681,123 +1681,23 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane4" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jTextField7" min="-2" pref="55" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jTextField12" min="-2" pref="53" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextField11" min="-2" pref="190" max="-2" attributes="0"/>
-                                              <Component id="jTextField13" min="-2" pref="190" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jFormattedTextField1" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <Component id="txtPrecoProduto1" min="-2" pref="90" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="txtPrecoProduto2" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jFormattedTextField2" min="-2" pref="80" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace pref="44" max="32767" attributes="0"/>
-                                          <Component id="jButton9" min="-2" pref="100" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPane4" pref="734" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPrecoProduto1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPrecoProduto2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="13" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane4" min="-2" pref="273" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPane4" pref="356" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="jLabel8">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Cliente"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel9">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Produto"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField11">
-                          <Properties>
-                            <Property name="editable" type="boolean" value="false"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel10">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Data"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel11">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Pre&#xe7;o"/>
-                          </Properties>
-                        </Component>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane4">
                           <AuxValues>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -1808,11 +1708,12 @@
                             <Component class="javax.swing.JTable" name="jTable2">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="4" rowCount="0">
-                                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                                  <Table columnCount="5" rowCount="0">
+                                    <Column editable="false" title="ID" type="java.lang.Object"/>
+                                    <Column editable="false" title="Data" type="java.lang.Object"/>
+                                    <Column editable="false" title="ID Cliente" type="java.lang.Object"/>
+                                    <Column editable="false" title="Nome Cliente" type="java.lang.Object"/>
+                                    <Column editable="false" title="Valor total" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1846,58 +1747,6 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Component class="javax.swing.JButton" name="jButton9">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Consultar"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
-                          <Properties>
-                            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                              <Format format="##/##/####" subtype="-1" type="5"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JFormattedTextField" name="txtPrecoProduto1">
-                          <Properties>
-                            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                              <Format format="#,##0.00" subtype="-1" type="4"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel2">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="At&#xe9;"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel3">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="At&#xe9;"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
-                          <Properties>
-                            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                              <Format format="##/##/####" subtype="-1" type="5"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JFormattedTextField" name="txtPrecoProduto2">
-                          <Properties>
-                            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                              <Format format="#,##0.00" subtype="-1" type="4"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField7">
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField12">
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField13">
-                          <Properties>
-                            <Property name="editable" type="boolean" value="false"/>
-                          </Properties>
-                        </Component>
                       </SubComponents>
                     </Container>
                     <Component class="javax.swing.JButton" name="jButton10">
@@ -2187,8 +2036,8 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jFormattedTextField3" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <EmptySpace pref="237" max="32767" attributes="0"/>
+                                  <Component id="jDateChooser3" min="-2" pref="136" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2197,10 +2046,8 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jFormattedTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="jDateChooser3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2223,18 +2070,16 @@
                             <Property name="text" type="java.lang.String" value="Data"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField3">
-                          <Properties>
-                            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                              <Format format="##/##/####" subtype="-1" type="5"/>
-                            </Property>
-                          </Properties>
-                        </Component>
                         <Component class="javax.swing.JTextField" name="jTextField5">
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextField6">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                          </Properties>
+                        </Component>
+                        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser3">
+                          <Properties>
+                            <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -2425,11 +2270,12 @@
                         <Component class="javax.swing.JTable" name="jTable3">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="0">
-                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              <Table columnCount="5" rowCount="0">
+                                <Column editable="false" title="ID" type="java.lang.Object"/>
+                                <Column editable="false" title="Data" type="java.lang.Object"/>
+                                <Column editable="false" title="ID Cliente" type="java.lang.Object"/>
+                                <Column editable="false" title="Nome Cliente" type="java.lang.Object"/>
+                                <Column editable="false" title="Valor total" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -2604,11 +2450,12 @@
                         <Component class="javax.swing.JTable" name="jTable4">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="0">
-                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              <Table columnCount="5" rowCount="0">
+                                <Column editable="false" title="ID" type="java.lang.Object"/>
+                                <Column editable="false" title="ID Produto" type="java.lang.Object"/>
+                                <Column editable="false" title="Nome Produto" type="java.lang.Object"/>
+                                <Column editable="false" title="Quantidade" type="java.lang.Object"/>
+                                <Column editable="false" title="Valor unit&#xe1;rio" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

@@ -1,7 +1,12 @@
-C:\Source\PI\SENAC-2024-2-PROJETO-INTEGRADOR\src\main\java\model\Relatorio.java
-C:\Source\PI\SENAC-2024-2-PROJETO-INTEGRADOR\src\main\java\model\Cliente.java
-C:\Source\PI\SENAC-2024-2-PROJETO-INTEGRADOR\src\main\java\model\Produto.java
-C:\Source\PI\SENAC-2024-2-PROJETO-INTEGRADOR\src\main\java\controller\Validacao.java
-C:\Source\PI\SENAC-2024-2-PROJETO-INTEGRADOR\src\main\java\view\TelaGerencial.java
-C:\Source\PI\SENAC-2024-2-PROJETO-INTEGRADOR\src\main\java\view\TelaInicial.java
-C:\Source\PI\SENAC-2024-2-PROJETO-INTEGRADOR\src\main\java\model\Venda.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\dao\ClienteDao.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\model\Cliente.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\dao\ProdutoDao.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\dao\VendaDao.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\model\ItemVenda.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\model\Venda.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\view\TelaGerencial.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\controller\Validacao.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\model\RelatorioSintetico.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\model\Produto.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\model\RelatorioAnalitico.java
+C:\Users\eduardo.mrcruz\Documents\Projeto Integrador\SENAC-2024-1-PROJETO-INTEGRADOR\src\main\java\view\TelaInicial.java

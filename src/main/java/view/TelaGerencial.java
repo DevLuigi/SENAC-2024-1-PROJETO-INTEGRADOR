@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Color;
 import controller.*;
+import dao.ProdutoDao;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -9,6 +10,7 @@ import javax.swing.ButtonModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.*;
+import model.Produto;
 
 public class TelaGerencial extends javax.swing.JFrame {
     /**
@@ -129,23 +131,8 @@ public class TelaGerencial extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton9 = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        txtPrecoProduto1 = new javax.swing.JFormattedTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        txtPrecoProduto2 = new javax.swing.JFormattedTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
@@ -169,9 +156,9 @@ public class TelaGerencial extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -1087,123 +1074,38 @@ public class TelaGerencial extends javax.swing.JFrame {
 
         TabbedPanePrincipal.addTab("Clientes", PainelLateralCliente);
 
-        jLabel8.setText("Cliente");
-
-        jLabel9.setText("Produto");
-
-        jTextField11.setEditable(false);
-
-        jLabel10.setText("Data");
-
-        jLabel11.setText("Preço");
-
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Data", "ID Cliente", "Nome Cliente", "Valor total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(jTable2);
-
-        jButton9.setText("Consultar");
-
-        try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        txtPrecoProduto1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-
-        jLabel2.setText("Até");
-
-        jLabel3.setText("Até");
-
-        try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        txtPrecoProduto2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-
-        jTextField13.setEditable(false);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane4))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(12, 12, 12))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPrecoProduto1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPrecoProduto2))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel10)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel11)
-                    .addComponent(txtPrecoProduto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtPrecoProduto2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1352,13 +1254,9 @@ public class TelaGerencial extends javax.swing.JFrame {
 
         jLabel14.setText("Data");
 
-        try {
-            jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         jTextField6.setEditable(false);
+
+        jDateChooser3.setDateFormatString("dd/MM/yyyy");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1374,17 +1272,16 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel14)
-                        .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1489,9 +1386,17 @@ public class TelaGerencial extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Data", "ID Cliente", "Nome Cliente", "Valor total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane5.setViewportView(jTable3);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -1570,9 +1475,17 @@ public class TelaGerencial extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "ID Produto", "Nome Produto", "Quantidade", "Valor unitário"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane6.setViewportView(jTable4);
 
         jLabel23.setText("Valor total");
@@ -1838,20 +1751,23 @@ public class TelaGerencial extends javax.swing.JFrame {
         double preco = Double.parseDouble(precoString);
         int estoque = Integer.parseInt(estoqueString);
         
-        DefaultTableModel tabela = (DefaultTableModel)this.tblProduto.getModel();
         if (this.lblAcaoDigitarProduto.getText().equals("Inserir")) {
-            tabela.addRow(new Object[]{nome, modelo, categoria, preco, estoque, fabricante, cor});
+            Produto produto = new Produto(nome, modelo, categoria, fabricante, cor, preco, estoque);
+            ProdutoDao dao = new ProdutoDao();
+            boolean inseriu = dao.inserir(produto);
             limpaCamposProduto();
-            JOptionPane.showMessageDialog(rootPane, "Produto inserido com sucesso");
+            if (inseriu) {
+                JOptionPane.showMessageDialog(rootPane, "Produto inserido com sucesso");
+            }
         } else {
             int linha = this.tblProduto.getSelectedRow();
-            tabela.setValueAt(nome, linha, 0);
-            tabela.setValueAt(modelo, linha, 1);
-            tabela.setValueAt(categoria, linha, 2);
-            tabela.setValueAt(preco, linha, 3);
-            tabela.setValueAt(estoque, linha, 4);
-            tabela.setValueAt(fabricante, linha, 5);
-            tabela.setValueAt(cor, linha, 6);
+//            tabela.setValueAt(nome, linha, 0);
+//            tabela.setValueAt(modelo, linha, 1);
+//            tabela.setValueAt(categoria, linha, 2);
+//            tabela.setValueAt(preco, linha, 3);
+//            tabela.setValueAt(estoque, linha, 4);
+//            tabela.setValueAt(fabricante, linha, 5);
+//            tabela.setValueAt(cor, linha, 6);
        
             limpaCamposProduto();     
             JOptionPane.showMessageDialog(rootPane, "Produto alterado com sucesso");
@@ -2003,19 +1919,6 @@ public class TelaGerencial extends javax.swing.JFrame {
             this.lblStatusCliente.setForeground(Color.green);
         }
     }//GEN-LAST:event_txtEmailFocusLost
-
-    private void fTxtDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fTxtDataNascimentoFocusLost
-        String dataNascimento = fTxtDataNascimento.getText();
-        
-        if(dataNascimento.equals("  /  /    ")){
-            this.lblStatusCliente.setText("STATUS: DATA DE NASCIMENTO INVÁLIDA");
-            this.lblStatusCliente.setForeground(Color.red);
-        }else {
-            this.lblStatusCliente.setText("STATUS: VÁLIDO");
-            this.lblStatusCliente.setForeground(Color.green);
-        }
-        
-    }//GEN-LAST:event_fTxtDataNascimentoFocusLost
 
     private void fTxtCepDigitarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fTxtCepDigitarFocusLost
         String cep = fTxtCepDigitar.getText();
@@ -2305,6 +2208,19 @@ public class TelaGerencial extends javax.swing.JFrame {
         this.btnSair.setBackground(Color.red);
     }//GEN-LAST:event_btnSairMouseEntered
 
+    private void fTxtDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fTxtDataNascimentoFocusLost
+        String dataNascimento = fTxtDataNascimento.getText();
+
+        if(dataNascimento.equals("  /  /    ")){
+            this.lblStatusCliente.setText("STATUS: DATA DE NASCIMENTO INVÁLIDA");
+            this.lblStatusCliente.setForeground(Color.red);
+        }else {
+            this.lblStatusCliente.setText("STATUS: VÁLIDO");
+            this.lblStatusCliente.setForeground(Color.green);
+        }
+
+    }//GEN-LAST:event_fTxtDataNascimentoFocusLost
+
     private void acharItemCombo(JComboBox combo, DefaultTableModel tabela, int linha, int coluna) {
         for (int i = 0; i < combo.getItemCount(); i++) {
             combo.setSelectedIndex(i);
@@ -2400,13 +2316,8 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -2415,19 +2326,15 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2451,9 +2358,6 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
@@ -2465,7 +2369,6 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblAcaoDigitarCliente;
@@ -2531,8 +2434,6 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrecoATE;
     private javax.swing.JTextField txtPrecoDE;
     private javax.swing.JFormattedTextField txtPrecoProduto;
-    private javax.swing.JFormattedTextField txtPrecoProduto1;
-    private javax.swing.JFormattedTextField txtPrecoProduto2;
     private javax.swing.JTextField txtTelefoneConsultar;
     // End of variables declaration//GEN-END:variables
 }
