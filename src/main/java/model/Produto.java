@@ -91,4 +91,15 @@ public class Produto {
         this.preco = preco;
         this.estoque = estoque;
     }
+    
+    public Produto(int id, String nome, String modelo, String categoria, String fabricante, String cor, double preco, int estoque) {
+        this.id = id;
+        this.nome = nome;
+        this.modelo = modelo;
+        this.categoria = categoria;
+        this.fabricante = fabricante;
+        this.cor = cor;
+        this.preco = preco;
+        this.estoque = estoque;
+    }
 }

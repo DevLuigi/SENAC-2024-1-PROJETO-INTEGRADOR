@@ -7,17 +7,19 @@ public class Cliente {
             nome,
             cpf,
             email,
+            telefone,
             sexo,
             estadoCivil,
             cep,
             logradouro,
+            complemento,
             bairro,
             cidade,
             estado,
             pais;
-    private int telefone;
+    private int numero;
     private Date dataNascimento;
-
+ 
     public String getNome() {
         return nome;
     }
@@ -74,6 +76,22 @@ public class Cliente {
         this.logradouro = logradouro;
     }
 
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+    
     public String getBairro() {
         return bairro;
     }
@@ -106,11 +124,11 @@ public class Cliente {
         this.pais = pais;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -122,32 +140,21 @@ public class Cliente {
         this.dataNascimento = dataNascimento;
     }
 
-    public Cliente(String nome, String cpf, String email, String sexo, String cep, String logradouro, String bairro, String cidade, String estado, String pais) {
-        this.nome = nome;
+    public Cliente(String cpf, String nome, String telefone, String email, String sexo, String estadoCivil, Date dataNascimento, String cep, String logradouro, int numero, String complemento, String bairro, String cidade, String estado, String pais) {
         this.cpf = cpf;
-        this.email = email;
-        this.sexo = sexo;
-        this.cep = cep;
-        this.logradouro = logradouro;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.pais = pais;
-    }
-
-    public Cliente(String nome, String cpf, String email, String sexo, String estadoCivil, String cep, String logradouro, String bairro, String cidade, String estado, String pais, int telefone, Date dataNascimento) {
         this.nome = nome;
-        this.cpf = cpf;
         this.email = email;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
         this.sexo = sexo;
         this.estadoCivil = estadoCivil;
         this.cep = cep;
         this.logradouro = logradouro;
+        this.numero = numero;
+        this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
         this.pais = pais;
-        this.telefone = telefone;
-        this.dataNascimento = dataNascimento;
     }
 }
