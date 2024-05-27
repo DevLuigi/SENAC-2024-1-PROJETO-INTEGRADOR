@@ -2,6 +2,10 @@ package model;
 
 import java.util.Date;
 
+/**
+* 
+* @param p - objeto do tipo Relatorio Sintetico
+*/ 
 public class RelatorioSintetico {
     private int id;
     private String idCliente;

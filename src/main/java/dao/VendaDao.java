@@ -18,6 +18,12 @@ public class VendaDao {
     public static String usu = "root";
     public static String pwd = "senharoot";
     
+/**
+* 
+* @param p - objeto do tipo inserir Venda
+* @return long inseriu
+* @throws
+*/     
     public static long inserir(Venda objeto) {
         long inseriu = 0;   
         Connection conexao = conectarBD();
@@ -59,6 +65,12 @@ public class VendaDao {
         return inseriu;
     }
     
+/**
+* 
+* @param p - objeto do tipo alterar Venda
+* @return long inseriu
+* @throws
+*/      
     public static boolean alterar(Venda objeto) {
         boolean alterou = false;
         Connection conexao = conectarBD();
@@ -100,6 +112,12 @@ public class VendaDao {
         return alterou;
     }
     
+/**
+* 
+* @param p - objeto do tipo excluir Venda
+* @return long excluiu
+* @throws
+*/      
     public static boolean excluir(int id) {
         boolean excluiu = false;
         Connection conexao = conectarBD();
@@ -131,6 +149,12 @@ public class VendaDao {
         return excluiu;
     }
     
+/**
+* 
+* @param p - objeto do tipo listar Venda
+* @return ArrayList vendaList
+* @throws
+*/      
     public static ArrayList<Venda> listar() {
         ArrayList<Venda> vendaList = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -170,6 +194,12 @@ public class VendaDao {
         return vendaList;
     }
     
+/**
+* 
+* @param p - objeto do tipo listar Venda com filtro
+* @return ArrayList vendaList
+* @throws
+*/      
     public static ArrayList<Venda> listar(Date dataInicial, Date dataFinal) {
         ArrayList<Venda> vendaList = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -213,6 +243,12 @@ public class VendaDao {
         return vendaList;
     }
     
+/**
+* 
+* @param p - objeto do tipo conexão com BD
+* @return Connection null
+* @throws
+*/ 
     public static Connection conectarBD() {
         try {
             Connection conexao = null;

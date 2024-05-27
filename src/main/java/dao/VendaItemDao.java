@@ -16,6 +16,12 @@ public class VendaItemDao {
     public static String usu = "root";
     public static String pwd = "senharoot";
     
+/**
+* 
+* @param p - objeto do tipo inserir ItemVenda
+* @return boolean - true: inseriu, false: falha
+* @throws
+*/      
     public static boolean inserir(ItemVenda objeto) {
         boolean inseriu = false;   
         Connection conexao = conectarBD();
@@ -50,6 +56,12 @@ public class VendaItemDao {
         return inseriu;
     }
     
+/**
+* 
+* @param p - objeto do tipo alterar ItemVenda
+* @return boolean - true: alterou, false: falha
+* @throws
+*/      
     public static boolean alterar(ItemVenda objeto) {
         boolean alterou = false;
         Connection conexao = conectarBD();
@@ -83,6 +95,12 @@ public class VendaItemDao {
         return alterou;
     }
     
+/**
+* 
+* @param p - objeto do tipo excluir ItemVenda
+* @return boolean - true: excluiu, false: falha
+* @throws
+*/      
     public static boolean excluir(int id) {
         boolean excluiu = false;
         Connection conexao = conectarBD();
@@ -107,6 +125,12 @@ public class VendaItemDao {
         return excluiu;
     }
     
+/**
+* 
+* @param p - objeto do tipo excluir todos ItemVenda
+* @return boolean - true: excluiu, false: falha
+* @throws
+*/      
     public static boolean excluirTodos(int id) {
         boolean excluiu = false;
         Connection conexao = conectarBD();
@@ -131,6 +155,12 @@ public class VendaItemDao {
         return excluiu;
     }
     
+/**
+* 
+* @param p - objeto do tipo listar ItemVenda
+* @return ArrayList vendaList
+* @throws
+*/      
     public static ArrayList<ItemVenda> listar() {
         ArrayList<ItemVenda> vendaList = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -160,6 +190,12 @@ public class VendaItemDao {
         return vendaList;
     }
     
+/**
+* 
+* @param p - objeto do tipo listar ItemVenda
+* @return ArrayList vendaList
+* @throws
+*/      
     public static ArrayList<ItemVenda> listarItensPedido(int id) {
         ArrayList<ItemVenda> vendaList = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -244,6 +280,12 @@ public class VendaItemDao {
 //        return vendaList;
 //    }
     
+/**
+* 
+* @param p - objeto do tipo conexão com BD
+* @return Connection null
+* @throws
+*/     
     public static Connection conectarBD() {
         try {
             Connection conexao = null;

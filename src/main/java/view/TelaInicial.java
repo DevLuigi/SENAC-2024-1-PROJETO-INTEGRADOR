@@ -5,6 +5,11 @@ public class TelaInicial extends javax.swing.JFrame {
     /**
      * Creates new form TelaInicial
      */
+    
+/**
+* 
+* @param p - objeto do tipo Tela Inicial
+*/         
     public TelaInicial() {
         initComponents();
     }

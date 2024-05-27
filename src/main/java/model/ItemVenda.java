@@ -3,6 +3,10 @@ package model;
 
 import javax.swing.JOptionPane;
 
+/**
+* 
+* @param p - objeto do tipo ItemVenda
+*/ 
 public class ItemVenda {
     private int id;
     private long idPedido;

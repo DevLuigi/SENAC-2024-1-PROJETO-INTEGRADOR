@@ -1,5 +1,9 @@
 package model;
 
+/**
+* 
+* @param p - objeto do tipo Relatorio Analitico
+*/ 
 public class RelatorioAnalitico {
     private String cpf;
     private int idProduto;

@@ -1,5 +1,9 @@
 package model;
 
+/**
+* 
+* @param p - objeto do tipo Produto
+*/ 
 public class Produto {
     private String 
             nome,

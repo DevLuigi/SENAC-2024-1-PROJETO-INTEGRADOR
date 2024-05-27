@@ -2,6 +2,10 @@ package model;
 
 import java.util.Date;
 
+/**
+* 
+* @param p - objeto do tipo Venda
+*/ 
 public class Venda { 
     private int id;
     private String cpf;

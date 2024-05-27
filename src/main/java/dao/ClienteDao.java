@@ -18,6 +18,13 @@ public class ClienteDao {
     public static String usu = "root";
     public static String pwd = "senharoot";
     
+    
+/**
+* 
+* @param p - objeto do tipo Cliente DAO
+* @return boolean - true: inseriu, false: falha
+*  @throws
+*/
     public static boolean inserir(Cliente objeto) {
         boolean inseriu = false;   
         Connection conexao = conectarBD();
@@ -87,6 +94,12 @@ public class ClienteDao {
         return inseriu;
     }
     
+/**
+* 
+* @param p - objeto do tipo Verificar Cliente
+* @return boolean - true: existe, false: falha
+* @throws
+*/
     private static boolean verificarClienteCadastrado(String cpf) {
         boolean existe = false;   
         Connection conexao = conectarBD();
@@ -118,6 +131,12 @@ public class ClienteDao {
         return existe;
     }
     
+/**
+* 
+* @param p - objeto do tipo alterar cadastro Cliente
+* @return boolean - true: alterou, false: falha
+* @throws
+*/    
     public static boolean alterar(Cliente objeto) {
         boolean alterou = false;
         Connection conexao = conectarBD();
@@ -183,6 +202,12 @@ public class ClienteDao {
         return alterou;
     }
     
+/**
+* 
+* @param p - objeto do tipo excluir Cliente
+* @return boolean - true: excluiu, false: falha
+* @throws
+*/    
     public static boolean excluir(String cpf) {
         boolean excluiu = false;
         Connection conexao = conectarBD();
@@ -207,6 +232,12 @@ public class ClienteDao {
         return excluiu;
     }
     
+/**
+* 
+* @param p - objeto do tipo listar Cliente
+* @return ArrayList clienteList
+* @throws
+*/    
     public static ArrayList<Cliente> listar() {
         ArrayList<Cliente> clienteList = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -262,6 +293,12 @@ public class ClienteDao {
         return clienteList;
     }
     
+/**
+* 
+* @param p - objeto do tipo listar Cliente com filtros
+* @return ArrayList clienteList
+* @throws
+*/     
     public static ArrayList<Cliente> listar(String nomeFiltro, String cpfFiltro) {
         ArrayList<Cliente> clienteList = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -330,6 +367,12 @@ public class ClienteDao {
         return clienteList;
     }
     
+/**
+* 
+* @param p - objeto do tipo conexão com BD
+* @return Connection null
+* @throws
+*/     
     public static Connection conectarBD() {
         try {
             Connection conexao = null;

@@ -19,6 +19,11 @@ import model.Venda;
 
 public class SinteticoDao {
     
+/**
+* 
+* @param p - objeto do tipo Listar Relatorio Sintetico
+* @return ArrayList sintetico
+*/      
     public static ArrayList<RelatorioSintetico> listar() {
         ArrayList<RelatorioSintetico> sintetico = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -58,6 +63,12 @@ public class SinteticoDao {
         return sintetico;
     }
     
+/**
+* 
+* @param p - objeto do tipo Listar Relatorio Sintetico
+* @return ArrayList sintetico
+*  @deprecated
+*/      
     public static ArrayList<RelatorioSintetico> listar(Date dataInicial, Date dataFinal) {
         ArrayList<RelatorioSintetico> sintetico = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -66,16 +77,28 @@ public class SinteticoDao {
             return sintetico;
         }
         
-        String comandoSQL = "SELECT * FROM PEDIDO WHERE DATAHORA >= ? AND DATAHORA <= ?";
+        String comandoSQL = """
+            select
+            	cliente.cpf,
+                produto.id,
+                produto.nome,
+                pedidoitem.quantidade,
+                produto.preco
+            from cliente
+            	inner join pedido on cliente.cpf = pedido.idcliente
+                inner join pedidoitem on pedido.id = pedidoitem.idpedido
+                inner join produto on pedidoitem.idproduto = produto.id;
+            WHERE DATAHORA >= ? AND DATAHORA <= ?
+                            """;
        
         try {
             PreparedStatement statement = conexao.prepareStatement(comandoSQL);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             if (dataInicial != null) {
                 String dataFormatada = sdf.format(dataInicial);
-                statement.setString(2, dataFormatada);
+                statement.setString(1, dataFormatada);
             } else {
-                statement.setString(2, null);
+                statement.setString(1, null);
             }
          
             if (dataFinal != null) {
@@ -87,11 +110,13 @@ public class SinteticoDao {
             
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {            
-                String cpf = resultSet.getString("IDCLIENTE");
+                int id = resultSet.getInt("ID");
+                String cpf = resultSet.getString("CPF");
+                String nome = resultSet.getString("NOME");
                 Date dataVenda = resultSet.getDate("DATAHORA");
                 Double valorTotal = resultSet.getDouble("VALORTOTAL");
-                
-                RelatorioSintetico objeto = new RelatorioSintetico(0, cpf, comandoSQL, dataVenda, 0);
+                             
+                RelatorioSintetico objeto = new RelatorioSintetico(id, cpf, nome, dataVenda, valorTotal);
                 sintetico.add(objeto);
            }
         } catch (SQLException ex) {
@@ -101,6 +126,12 @@ public class SinteticoDao {
         return sintetico;
     }
     
+/**
+* 
+* @param p - objeto do tipo conexão com BD
+* @return Connection null
+* @throws
+*/     
     public static Connection conectarBD() {
         try {
             Connection conexao = null;

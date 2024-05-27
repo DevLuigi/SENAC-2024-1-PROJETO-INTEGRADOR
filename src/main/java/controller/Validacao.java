@@ -2,6 +2,10 @@ package controller;
 
 import java.awt.event.KeyEvent;
 
+/**
+* 
+* @param p - objeto do tipo Validação
+*/     
 public class Validacao {
     public static boolean validaStringVazia(String texto) {
         return !texto.strip().equals("");

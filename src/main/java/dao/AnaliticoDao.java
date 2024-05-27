@@ -19,6 +19,12 @@ import model.RelatorioSintetico;
 
 public class AnaliticoDao {
     
+/**
+* 
+* @param p - objeto do tipo Relatório Analítico DAO
+* @return ArrayList analitico
+*  @throws
+*/
     public static ArrayList<RelatorioAnalitico> listar() {
         ArrayList<RelatorioAnalitico> analitico = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -59,6 +65,13 @@ public class AnaliticoDao {
         return analitico;
     }
     
+/**
+* 
+* @param p - objeto do tipo Relatório Analítico DAO
+* @return ArrayList analitico
+* @deprecated
+*  @throws
+*/    
     public static ArrayList<RelatorioSintetico> listar(Date dataInicial, Date dataFinal) {
         ArrayList<RelatorioSintetico> sintetico = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -114,6 +127,12 @@ public class AnaliticoDao {
         return sintetico;
     }
     
+/**
+* 
+* @param p - objeto do tipo conexão com BD
+* @return Connection null
+* @throws
+*/         
     public static Connection conectarBD() {
         try {
             Connection conexao = null;

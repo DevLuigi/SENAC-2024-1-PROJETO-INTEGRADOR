@@ -2,6 +2,10 @@ package model;
 
 import java.util.Date;
 
+/**
+* 
+* @param p - objeto do tipo Cliente
+*/ 
 public class Cliente {
     private String 
             nome,

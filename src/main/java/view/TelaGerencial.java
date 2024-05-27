@@ -29,6 +29,10 @@ public class TelaGerencial extends javax.swing.JFrame {
      * Creates new form TelaInicial
      */
    
+/**
+* 
+* @param p - objeto do tipo Tela Gerencial
+*/        
     public TelaGerencial() {
         initComponents();
     }
@@ -174,9 +178,9 @@ public class TelaGerencial extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        txtDataVendas = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        txtDataAte = new javax.swing.JTextField();
+        txtDataSintetico = new com.toedter.calendar.JDateChooser();
+        txtDataAte_Sintetico = new com.toedter.calendar.JDateChooser();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblSintetico = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
@@ -193,10 +197,6 @@ public class TelaGerencial extends javax.swing.JFrame {
         txtValorAnalitico = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         txtRegistrosAnalitico = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         PainelHeader = new javax.swing.JPanel();
         btnSair = new javax.swing.JToggleButton();
@@ -1433,6 +1433,10 @@ public class TelaGerencial extends javax.swing.JFrame {
 
         jLabel18.setText("Até");
 
+        txtDataSintetico.setDateFormatString("dd/MM/yyyy");
+
+        txtDataAte_Sintetico.setDateFormatString("dd/MM/yyyy");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1441,23 +1445,23 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDataVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDataSintetico, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDataAte, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addComponent(txtDataAte_Sintetico, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(txtDataVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDataAte_Sintetico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataSintetico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
-                    .addComponent(txtDataAte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1))
+                    .addComponent(jLabel17))
+                .addContainerGap())
         );
 
         tblSintetico.setModel(new javax.swing.table.DefaultTableModel(
@@ -1515,7 +1519,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                         .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
@@ -1585,10 +1589,6 @@ public class TelaGerencial extends javax.swing.JFrame {
 
         txtRegistrosAnalitico.setEnabled(false);
 
-        jLabel21.setText("Vendas");
-
-        jLabel22.setText("Até");
-
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -1598,7 +1598,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel23)
@@ -1610,31 +1610,17 @@ public class TelaGerencial extends javax.swing.JFrame {
                                 .addComponent(txtRegistrosAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel22)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(14, 654, Short.MAX_VALUE)
                         .addComponent(btnConsultarAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel21)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel22)
-                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnConsultarAnalitico))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(btnConsultarAnalitico)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23)
@@ -1642,7 +1628,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                         .addComponent(txtValorAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel24)
                         .addComponent(txtRegistrosAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Analitica", jPanel7);
@@ -2736,51 +2722,85 @@ public class TelaGerencial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendaExcluirActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        SinteticoDao dao = new SinteticoDao();
         ArrayList<RelatorioSintetico> sintetico = null;
         Double resultadoTotal = 0.0;
+        Date dataVenda = this.txtDataSintetico.getDate();
+        Date dataAte = this.txtDataAte_Sintetico.getDate();
         
         DefaultTableModel model = (DefaultTableModel)this.tblSintetico.getModel();
         model.setRowCount(0);
         
-        sintetico = dao.listar();
-        if (sintetico.isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Não há itens a serem listados");
-            return;
+        if(dataVenda == null && dataAte == null){
+            SinteticoDao dao = new SinteticoDao();
+            sintetico = dao.listar();
+            
+            if (sintetico.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "Não há itens a serem listados");
+                return;
+            }
+
+            for (RelatorioSintetico item : sintetico) {
+                model.addRow(new String[] {
+                    String.valueOf(item.getId()),
+                    String.valueOf(item.getDataVenda()),
+                    String.valueOf(item.getIdCliente()),
+                    String.valueOf(item.getNomeCliente()),
+                    String.valueOf(item.getValorTotal())
+                });
+            }
+
+            for(RelatorioSintetico item : sintetico){
+                resultadoTotal += item.getValorTotal();
+            }
+
+            txtValorTotal.setText(String.valueOf(resultadoTotal));
+
+            txtRegistros.setText(String.valueOf(model.getRowCount()));
+        }
+        else{
+            SinteticoDao dao = new SinteticoDao();
+            sintetico = dao.listar(dataVenda, dataAte);
+            
+            if (sintetico.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "Não há itens a serem listados");
+                return;
+            }
+
+            for (RelatorioSintetico item : sintetico) {
+                model.addRow(new String[] {
+                    String.valueOf(item.getId()),
+                    String.valueOf(item.getDataVenda()),
+                    String.valueOf(item.getIdCliente()),
+                    String.valueOf(item.getNomeCliente()),
+                    String.valueOf(item.getValorTotal())
+                });
+            }
+
+            for(RelatorioSintetico item : sintetico){
+                resultadoTotal += item.getValorTotal();
+            }
+
+            txtValorTotal.setText(String.valueOf(resultadoTotal));
+
+            txtRegistros.setText(String.valueOf(model.getRowCount()));
         }
         
-        for (RelatorioSintetico item : sintetico) {
-            model.addRow(new String[] {
-                String.valueOf(item.getId()),
-                String.valueOf(item.getDataVenda()),
-                String.valueOf(item.getIdCliente()),
-                String.valueOf(item.getNomeCliente()),
-                String.valueOf(item.getValorTotal())
-            });
-        }
-        
-        for(RelatorioSintetico item : sintetico){
-            resultadoTotal += item.getValorTotal();
-        }
-        txtValorTotal.setText(String.valueOf(resultadoTotal));
-        
-        txtRegistros.setText(String.valueOf(model.getRowCount()));
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnConsultarAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarAnaliticoActionPerformed
         AnaliticoDao dao = new AnaliticoDao();
         ArrayList<RelatorioAnalitico> analitico = null;
         Double resultadoTotal = 0.0;
-        
+
         DefaultTableModel model = (DefaultTableModel)this.tblAnalitico.getModel();
         model.setRowCount(0);
-        
+
         analitico = dao.listar();
         if (analitico.isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "Não há itens a serem listados");
             return;
         }
-        
+
         for (RelatorioAnalitico item : analitico) {
             model.addRow(new String[] {
                 String.valueOf(item.getCpf()),
@@ -2790,12 +2810,12 @@ public class TelaGerencial extends javax.swing.JFrame {
                 String.valueOf(item.getPrecoProduto())
             });
         }
-        
+
         for(RelatorioAnalitico item : analitico){
             resultadoTotal += item.getPrecoProduto();
         }
         txtValorAnalitico.setText(String.valueOf(resultadoTotal));
-        
+
         txtRegistrosAnalitico.setText(String.valueOf(model.getRowCount()));
     }//GEN-LAST:event_btnConsultarAnaliticoActionPerformed
 
@@ -3020,8 +3040,6 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel4;
@@ -3045,8 +3063,6 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JLabel lblAcaoDigitarCliente;
     private javax.swing.JLabel lblAcaoDigitarProduto;
     private javax.swing.JLabel lblBairro;
@@ -3093,10 +3109,10 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JTextField txtCategoriaProdutoDigitar;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtComplemento;
-    private javax.swing.JTextField txtDataAte;
+    private com.toedter.calendar.JDateChooser txtDataAte_Sintetico;
     private com.toedter.calendar.JDateChooser txtDataNascimento;
+    private com.toedter.calendar.JDateChooser txtDataSintetico;
     private com.toedter.calendar.JDateChooser txtDataVenda;
-    private javax.swing.JTextField txtDataVendas;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEstoqueProduto;
     private javax.swing.JTextField txtFabricanteProduto;

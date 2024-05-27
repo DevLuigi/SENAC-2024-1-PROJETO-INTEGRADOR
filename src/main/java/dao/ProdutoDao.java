@@ -16,6 +16,12 @@ public class ProdutoDao {
     public static String usu = "root";
     public static String pwd = "senharoot";
     
+/**
+* 
+* @param p - objeto do tipo inserir Produto
+* @return boolean - true: inseriu, false: falha
+* @throws
+*/      
     public static boolean inserir(Produto objeto) {
         boolean inseriu = false;   
         Connection conexao = conectarBD();
@@ -56,6 +62,13 @@ public class ProdutoDao {
         return inseriu;
     }
     
+    
+/**
+* 
+* @param p - objeto do tipo alterar Produto
+* @return boolean - true: alterou, false: falha
+* @throws
+*/      
     public static boolean alterar(Produto objeto) {
         boolean alterou = false;
         Connection conexao = conectarBD();
@@ -99,6 +112,13 @@ public class ProdutoDao {
         return alterou;
     }
     
+    
+/**
+* 
+* @param p - objeto do tipo excluir Produto
+* @return boolean - true: excluiu, falsee: falha
+* @throws
+*/      
     public static boolean excluir(int id) {
         boolean excluiu = false;
         Connection conexao = conectarBD();
@@ -123,6 +143,13 @@ public class ProdutoDao {
         return excluiu;
     }
     
+    
+/**
+* 
+* @param p - objeto do tipo listar Produto
+* @return ArrayList produtoList
+* @throws
+*/      
     public static ArrayList<Produto> listar() {
         ArrayList<Produto> produtoList = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -167,6 +194,12 @@ public class ProdutoDao {
         return produtoList;
     }
     
+/**
+* 
+* @param p - objeto do tipo listar Produto com filtro
+* @return ArrayList produtoList
+* @throws
+*/       
     public static ArrayList<Produto> listar(String filtro) {
         ArrayList<Produto> produtoList = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -216,6 +249,12 @@ public class ProdutoDao {
         return produtoList;
     }
     
+/**
+* 
+* @param p - objeto do tipo listar Produto com filtro
+* @return ArrayList produtoList
+* @throws
+*/    
     public static ArrayList<Produto> listar(int idFiltro) {
         ArrayList<Produto> produtoList = new ArrayList<>();
         Connection conexao = conectarBD();
@@ -265,6 +304,12 @@ public class ProdutoDao {
         return produtoList;
     }
     
+/**
+* 
+* @param p - objeto do tipo conexão com BD
+* @return Connection null
+* @throws
+*/      
     public static Connection conectarBD() {
         try {
             Connection conexao = null;
