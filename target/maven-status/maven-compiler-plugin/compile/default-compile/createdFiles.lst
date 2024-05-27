@@ -1,3 +1,4 @@
+view\TelaGerencial$57.class
 view\TelaGerencial$2.class
 view\TelaGerencial$14.class
 view\TelaGerencial$40.class
@@ -17,11 +18,13 @@ view\TelaGerencial$28.class
 view\TelaGerencial$33.class
 view\TelaGerencial$23.class
 view\TelaGerencial$43.class
+dao\AnaliticoDao.class
 view\TelaGerencial$13.class
 view\TelaGerencial$38.class
 view\TelaGerencial.class
 dao\VendaItemDao.class
 view\TelaGerencial$21.class
+view\TelaGerencial$56.class
 view\TelaGerencial$15.class
 view\TelaGerencial$6.class
 view\TelaGerencial$41.class
@@ -49,6 +52,7 @@ view\TelaGerencial$4.class
 view\TelaGerencial$45.class
 view\TelaGerencial$26.class
 view\TelaGerencial$16.class
+dao\SinteticoDao.class
 view\TelaGerencial$36.class
 dao\VendaDao.class
 view\TelaGerencial$48.class

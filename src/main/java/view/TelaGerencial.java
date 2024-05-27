@@ -2,8 +2,10 @@ package view;
 
 import java.awt.Color;
 import controller.*;
+import dao.AnaliticoDao;
 import dao.ClienteDao;
 import dao.ProdutoDao;
+import dao.SinteticoDao;
 import dao.VendaDao;
 import dao.VendaItemDao;
 import java.util.Date;
@@ -18,6 +20,8 @@ import model.Produto;
 import java.util.ArrayList;
 import model.Cliente;
 import model.ItemVenda;
+import model.RelatorioAnalitico;
+import model.RelatorioSintetico;
 import model.Venda;
 
 public class TelaGerencial extends javax.swing.JFrame {
@@ -170,25 +174,25 @@ public class TelaGerencial extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtDataVendas = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txtDataAte = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblSintetico = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        txtValorTotal = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        txtRegistros = new javax.swing.JTextField();
+        btnConsultar = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
+        btnConsultarAnalitico = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tblAnalitico = new javax.swing.JTable();
         jLabel23 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
+        txtValorAnalitico = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        txtRegistrosAnalitico = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
@@ -309,7 +313,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                     .addComponent(btnIncluirProduto)
                     .addComponent(btnAlterarProduto)
                     .addComponent(btnExcluirProduto))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TabbedPaneProdutos.addTab("Consulta", PainelConsultaProdutos);
@@ -1375,7 +1379,7 @@ public class TelaGerencial extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 734, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 738, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -1437,11 +1441,11 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDataVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDataAte, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(300, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -1450,18 +1454,18 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDataAte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1))
         );
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblSintetico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Data", "ID Cliente", "Nome Cliente", "Valor total"
+                "ID", "Data", "CPF Cliente", "Nome Cliente", "Valor total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1472,7 +1476,7 @@ public class TelaGerencial extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable3);
+        jScrollPane5.setViewportView(tblSintetico);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1487,13 +1491,18 @@ public class TelaGerencial extends javax.swing.JFrame {
 
         jLabel19.setText("Valor total");
 
-        jTextField14.setEnabled(false);
+        txtValorTotal.setEnabled(false);
 
         jLabel20.setText("Registros");
 
-        jTextField15.setEnabled(false);
+        txtRegistros.setEnabled(false);
 
-        jButton3.setText("Consultar");
+        btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1505,18 +1514,18 @@ public class TelaGerencial extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1526,16 +1535,16 @@ public class TelaGerencial extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(btnConsultar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel20)
-                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1543,14 +1552,19 @@ public class TelaGerencial extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Sintetica", jPanel6);
 
-        jButton5.setText("Consultar");
+        btnConsultarAnalitico.setText("Consultar");
+        btnConsultarAnalitico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarAnaliticoActionPerformed(evt);
+            }
+        });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tblAnalitico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "ID Produto", "Nome Produto", "Quantidade", "Valor unitário"
+                "CPF", "ID Produto", "Nome Produto", "Quantidade", "Valor unitário"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1561,15 +1575,15 @@ public class TelaGerencial extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane6.setViewportView(jTable4);
+        jScrollPane6.setViewportView(tblAnalitico);
 
         jLabel23.setText("Valor total");
 
-        jTextField18.setEnabled(false);
+        txtValorAnalitico.setEnabled(false);
 
         jLabel24.setText("Registros");
 
-        jTextField19.setEnabled(false);
+        txtRegistrosAnalitico.setEnabled(false);
 
         jLabel21.setText("Vendas");
 
@@ -1589,11 +1603,11 @@ public class TelaGerencial extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel23)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtValorAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtRegistrosAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
@@ -1605,29 +1619,29 @@ public class TelaGerencial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnConsultarAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel21)
                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel22)
-                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnConsultarAnalitico))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValorAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel24)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtRegistrosAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
@@ -2721,6 +2735,70 @@ public class TelaGerencial extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnVendaExcluirActionPerformed
 
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        SinteticoDao dao = new SinteticoDao();
+        ArrayList<RelatorioSintetico> sintetico = null;
+        Double resultadoTotal = 0.0;
+        
+        DefaultTableModel model = (DefaultTableModel)this.tblSintetico.getModel();
+        model.setRowCount(0);
+        
+        sintetico = dao.listar();
+        if (sintetico.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Não há itens a serem listados");
+            return;
+        }
+        
+        for (RelatorioSintetico item : sintetico) {
+            model.addRow(new String[] {
+                String.valueOf(item.getId()),
+                String.valueOf(item.getDataVenda()),
+                String.valueOf(item.getIdCliente()),
+                String.valueOf(item.getNomeCliente()),
+                String.valueOf(item.getValorTotal())
+            });
+        }
+        
+        for(RelatorioSintetico item : sintetico){
+            resultadoTotal += item.getValorTotal();
+        }
+        txtValorTotal.setText(String.valueOf(resultadoTotal));
+        
+        txtRegistros.setText(String.valueOf(model.getRowCount()));
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnConsultarAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarAnaliticoActionPerformed
+        AnaliticoDao dao = new AnaliticoDao();
+        ArrayList<RelatorioAnalitico> analitico = null;
+        Double resultadoTotal = 0.0;
+        
+        DefaultTableModel model = (DefaultTableModel)this.tblAnalitico.getModel();
+        model.setRowCount(0);
+        
+        analitico = dao.listar();
+        if (analitico.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Não há itens a serem listados");
+            return;
+        }
+        
+        for (RelatorioAnalitico item : analitico) {
+            model.addRow(new String[] {
+                String.valueOf(item.getCpf()),
+                String.valueOf(item.getIdProduto()),
+                String.valueOf(item.getNomeProduto()),
+                String.valueOf(item.getQuantidadeProduto()),
+                String.valueOf(item.getPrecoProduto())
+            });
+        }
+        
+        for(RelatorioAnalitico item : analitico){
+            resultadoTotal += item.getPrecoProduto();
+        }
+        txtValorAnalitico.setText(String.valueOf(resultadoTotal));
+        
+        txtRegistrosAnalitico.setText(String.valueOf(model.getRowCount()));
+    }//GEN-LAST:event_btnConsultarAnaliticoActionPerformed
+
     private boolean inserirItensPedido(long idPedido) {
         DefaultTableModel model = (DefaultTableModel)this.tblItensVenda.getModel();
         VendaItemDao vendaItemDao = new VendaItemDao();
@@ -2898,6 +2976,8 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JButton btnAlterarProduto;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCancelarProduto;
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnConsultarAnalitico;
     private javax.swing.JButton btnConsultarCliente;
     private javax.swing.JButton btnConsultarProduto;
     private javax.swing.JButton btnExcluirCliente;
@@ -2928,9 +3008,7 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField fTxtTelefone;
     private javax.swing.JFormattedTextField fTxtVendaCpf;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -2967,16 +3045,8 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblAcaoDigitarCliente;
     private javax.swing.JLabel lblAcaoDigitarProduto;
     private javax.swing.JLabel lblBairro;
@@ -3013,16 +3083,20 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JLabel lblTel;
     private javax.swing.JRadioButton rbtnFemininoCliente;
     private javax.swing.JRadioButton rbtnMasculinoCliente;
+    private javax.swing.JTable tblAnalitico;
     private javax.swing.JTable tblCliente;
     private javax.swing.JTable tblItensVenda;
     private javax.swing.JTable tblProduto;
+    private javax.swing.JTable tblSintetico;
     private javax.swing.JTable tblVenda;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCategoriaProdutoDigitar;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtComplemento;
+    private javax.swing.JTextField txtDataAte;
     private com.toedter.calendar.JDateChooser txtDataNascimento;
     private com.toedter.calendar.JDateChooser txtDataVenda;
+    private javax.swing.JTextField txtDataVendas;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEstoqueProduto;
     private javax.swing.JTextField txtFabricanteProduto;
@@ -3034,6 +3108,10 @@ public class TelaGerencial extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeProdutoConsultar;
     private javax.swing.JTextField txtNomeProdutoDigitar;
     private javax.swing.JFormattedTextField txtPrecoProduto;
+    private javax.swing.JTextField txtRegistros;
+    private javax.swing.JTextField txtRegistrosAnalitico;
+    private javax.swing.JTextField txtValorAnalitico;
+    private javax.swing.JTextField txtValorTotal;
     private javax.swing.JTextField txtVendaClienteNome;
     private javax.swing.JTextField txtVendaID;
     private javax.swing.JTextField txtVendaIDProduto;

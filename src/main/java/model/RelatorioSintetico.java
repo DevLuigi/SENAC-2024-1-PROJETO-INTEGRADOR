@@ -3,23 +3,25 @@ package model;
 import java.util.Date;
 
 public class RelatorioSintetico {
-    private int idCliente;
+    private int id;
+    private String idCliente;
     private String nomeCliente;
     private Date dataVenda;
     private double valorTotal;
 
-    public RelatorioSintetico(int idCliente, String nomeCliente, Date dataVenda, double valorTotal) {
+    public RelatorioSintetico(int id, String idCliente, String nomeCliente, Date dataVenda, double valorTotal) {
+        this.id = id;
         this.idCliente = idCliente;
         this.nomeCliente = nomeCliente;
         this.dataVenda = dataVenda;
         this.valorTotal = valorTotal;
     }
 
-    public int getIdCliente() {
+    public String getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -46,4 +48,14 @@ public class RelatorioSintetico {
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 }

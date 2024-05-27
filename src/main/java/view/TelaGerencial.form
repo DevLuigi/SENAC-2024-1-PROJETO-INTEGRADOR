@@ -193,7 +193,7 @@
                                   <Component id="btnAlterarProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnExcluirProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1744,7 +1744,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel3" alignment="1" pref="734" max="32767" attributes="0"/>
+                                  <Component id="jPanel3" alignment="1" pref="738" max="32767" attributes="0"/>
                                   <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2210,7 +2210,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jPanel8" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton3" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="btnConsultar" min="-2" pref="90" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane5" alignment="0" pref="734" max="32767" attributes="0"/>
                                   <Component id="jPanel9" alignment="0" max="32767" attributes="0"/>
@@ -2218,11 +2218,11 @@
                                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                       <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jTextField14" min="-2" pref="109" max="-2" attributes="0"/>
+                                      <Component id="txtValorTotal" min="-2" pref="109" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       <Component id="jLabel20" min="-2" pref="58" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField15" min="-2" pref="109" max="-2" attributes="0"/>
+                                      <Component id="txtRegistros" min="-2" pref="109" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -2236,7 +2236,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnConsultar" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane5" min="-2" pref="317" max="-2" attributes="0"/>
@@ -2244,9 +2244,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtRegistros" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2266,11 +2266,11 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jTextField9" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="txtDataVendas" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jTextField10" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="txtDataAte" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace pref="300" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -2281,9 +2281,9 @@
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDataVendas" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDataAte" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                               </Group>
@@ -2296,14 +2296,14 @@
                             <Property name="text" type="java.lang.String" value="Vendas"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField9">
+                        <Component class="javax.swing.JTextField" name="txtDataVendas">
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel18">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="At&#xe9;"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField10">
+                        <Component class="javax.swing.JTextField" name="txtDataAte">
                         </Component>
                       </SubComponents>
                     </Container>
@@ -2314,13 +2314,13 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable3">
+                        <Component class="javax.swing.JTable" name="tblSintetico">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="5" rowCount="0">
                                 <Column editable="false" title="ID" type="java.lang.Object"/>
                                 <Column editable="false" title="Data" type="java.lang.Object"/>
-                                <Column editable="false" title="ID Cliente" type="java.lang.Object"/>
+                                <Column editable="false" title="CPF Cliente" type="java.lang.Object"/>
                                 <Column editable="false" title="Nome Cliente" type="java.lang.Object"/>
                                 <Column editable="false" title="Valor total" type="java.lang.Object"/>
                               </Table>
@@ -2376,7 +2376,7 @@
                         <Property name="text" type="java.lang.String" value="Valor total"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField14">
+                    <Component class="javax.swing.JTextField" name="txtValorTotal">
                       <Properties>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
@@ -2386,15 +2386,18 @@
                         <Property name="text" type="java.lang.String" value="Registros"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField15">
+                    <Component class="javax.swing.JTextField" name="txtRegistros">
                       <Properties>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton3">
+                    <Component class="javax.swing.JButton" name="btnConsultar">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Consultar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2420,11 +2423,11 @@
                                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                               <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jTextField18" min="-2" pref="109" max="-2" attributes="0"/>
+                                              <Component id="txtValorAnalitico" min="-2" pref="109" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                               <Component id="jLabel24" min="-2" pref="58" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField19" min="-2" pref="109" max="-2" attributes="0"/>
+                                              <Component id="txtRegistrosAnalitico" min="-2" pref="109" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -2439,7 +2442,7 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jTextField12" min="-2" pref="120" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jButton5" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="btnConsultarAnalitico" min="-2" pref="90" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2450,14 +2453,14 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="btnConsultarAnalitico" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane6" min="-2" pref="313" max="-2" attributes="0"/>
@@ -2465,9 +2468,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="jTextField18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtValorAnalitico" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtRegistrosAnalitico" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="61" max="32767" attributes="0"/>
@@ -2476,10 +2479,13 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="jButton5">
+                    <Component class="javax.swing.JButton" name="btnConsultarAnalitico">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Consultar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarAnaliticoActionPerformed"/>
+                      </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane6">
                       <AuxValues>
@@ -2488,11 +2494,11 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable4">
+                        <Component class="javax.swing.JTable" name="tblAnalitico">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="5" rowCount="0">
-                                <Column editable="false" title="ID" type="java.lang.Object"/>
+                                <Column editable="false" title="CPF" type="java.lang.Object"/>
                                 <Column editable="false" title="ID Produto" type="java.lang.Object"/>
                                 <Column editable="false" title="Nome Produto" type="java.lang.Object"/>
                                 <Column editable="false" title="Quantidade" type="java.lang.Object"/>
@@ -2535,7 +2541,7 @@
                         <Property name="text" type="java.lang.String" value="Valor total"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField18">
+                    <Component class="javax.swing.JTextField" name="txtValorAnalitico">
                       <Properties>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
@@ -2545,7 +2551,7 @@
                         <Property name="text" type="java.lang.String" value="Registros"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField19">
+                    <Component class="javax.swing.JTextField" name="txtRegistrosAnalitico">
                       <Properties>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>

@@ -1,12 +1,14 @@
 package model;
 
 public class RelatorioAnalitico {
+    private String cpf;
     private int idProduto;
-    private int nomeProduto;
+    private String nomeProduto;
     private int quantidadeProduto;
-    private int precoProduto;
+    private Double precoProduto;
 
-    public RelatorioAnalitico(int idProduto, int nomeProduto, int quantidadeProduto, int precoProduto) {
+    public RelatorioAnalitico(String cpf, int idProduto, String nomeProduto, int quantidadeProduto, Double precoProduto) {
+        this.cpf = cpf;
         this.idProduto = idProduto;
         this.nomeProduto = nomeProduto;
         this.quantidadeProduto = quantidadeProduto;
@@ -21,11 +23,11 @@ public class RelatorioAnalitico {
         this.idProduto = idProduto;
     }
 
-    public int getNomeProduto() {
+    public String getNomeProduto() {
         return nomeProduto;
     }
 
-    public void setNomeProduto(int nomeProduto) {
+    public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
 
@@ -37,12 +39,22 @@ public class RelatorioAnalitico {
         this.quantidadeProduto = quantidadeProduto;
     }
 
-    public int getPrecoProduto() {
+    public Double getPrecoProduto() {
         return precoProduto;
     }
 
-    public void setPrecoProduto(int precoProduto) {
+    public void setPrecoProduto(Double precoProduto) {
         this.precoProduto = precoProduto;
     }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    
+    
     
 }

@@ -16,7 +16,7 @@ import model.Cliente;
 public class ClienteDao {
     public static String url = "jdbc:mysql://localhost:3306/lojainfo";
     public static String usu = "root";
-    public static String pwd = "52c09k56l";
+    public static String pwd = "senharoot";
     
     public static boolean inserir(Cliente objeto) {
         boolean inseriu = false;   
